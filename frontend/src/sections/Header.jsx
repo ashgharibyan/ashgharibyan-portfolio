@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CircleButton from "../components/CircleButton";
-import { headerMaterials } from "../constants";
+import { headerMaterials, headerCircleIcons } from "../constants";
 
 const Header = () => {
     const [currentWindowWidth, setcurrentWindowWidth] = useState(
@@ -13,14 +13,13 @@ const Header = () => {
     // useEffect(() => {
     //     setcurrentWindowHeight(window.innerHeight);
     //     setcurrentWindowWidth(window.innerWidth);
-    // }, [window.innerHeight, window.innerWidth]);
+    // }, [currentWindowWidth, currentWindowHeight]);
 
     const handleWindowSizeChange = () => {
         setcurrentWindowHeight(window.innerHeight);
         setcurrentWindowWidth(window.innerWidth);
     };
 
-    // call your useEffect
     useEffect(() => {
         window.addEventListener("resize", handleWindowSizeChange);
         return () => {
@@ -31,18 +30,23 @@ const Header = () => {
     return (
         <header className="px-3 py-1">
             <div className="flex items-center">
-                <div className="flex items-center justify-center gap-x-6">
-                    <CircleButton color={"bg-[#ED695E]"}></CircleButton>
-                    <CircleButton color={"bg-[#F4BD4F]"}></CircleButton>
-                    <CircleButton color={"bg-[#61C454]"}></CircleButton>
+                <div className="flex items-center justify-center gap-x-6 sm:gap-x-1 lg:gap-x-2">
+                    {headerCircleIcons.map((icon, idx) => (
+                        <CircleButton
+                            key={idx}
+                            color={icon.color}
+                            imgURL={icon.image}
+                            altText={icon.name}
+                        ></CircleButton>
+                    ))}
                 </div>
                 <div className="flex flex-1 items-center justify-center gap-3">
                     <img
                         src={headerMaterials[0].home_folder_icon}
                         alt={headerMaterials[0].name}
-                        className="h-12"
+                        className="h-12 sm:h-5 lg:h-8"
                     />
-                    <h1>
+                    <h1 className="text-inherit sm:text-sm lg:text-xl">
                         ashotgharibyan -- -zsh -- {currentWindowWidth}x
                         {currentWindowHeight}
                     </h1>
