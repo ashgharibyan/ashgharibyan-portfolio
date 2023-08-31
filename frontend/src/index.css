@@ -14,3 +14,9 @@
     font-family: "SF Mono", sans-serif;
     font-weight: normal;
 }
+
+@layer utilities {
+    .textQuery {
+        @apply sm:text-sm lg:text-xl;
+    }
+}

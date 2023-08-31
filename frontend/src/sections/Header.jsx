@@ -28,9 +28,9 @@ const Header = () => {
     }, []);
 
     return (
-        <header className="px-3 py-1">
+        <header>
             <div className="flex items-center">
-                <div className="flex items-center justify-center gap-x-6 sm:gap-x-1 lg:gap-x-2">
+                <div className="flex items-center justify-center gap-x-3 sm:gap-x-1 lg:gap-x-2">
                     {headerCircleIcons.map((icon, idx) => (
                         <CircleButton
                             key={idx}
@@ -46,7 +46,7 @@ const Header = () => {
                         alt={headerMaterials[0].name}
                         className="h-12 sm:h-5 lg:h-8"
                     />
-                    <h1 className="text-inherit sm:text-sm lg:text-xl">
+                    <h1 className="textQuery">
                         ashotgharibyan -- -zsh -- {currentWindowWidth}x
                         {currentWindowHeight}
                     </h1>

@@ -5,7 +5,7 @@ const CircleButton = ({ color, imgURL, altText }) => {
         >
             <a href="#" className="invisible group-hover:visible">
                 <img
-                    className=" h-12 w-12 object-scale-down sm:h-4 sm:w-4 lg:h-6 lg:w-6"
+                    className=" h-10 w-10 object-scale-down sm:h-4 sm:w-4 lg:h-6 lg:w-6"
                     src={imgURL}
                     alt={altText}
                 />
