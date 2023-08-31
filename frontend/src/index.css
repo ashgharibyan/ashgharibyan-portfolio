@@ -17,6 +17,6 @@
 
 @layer utilities {
     .textQuery {
-        @apply sm:text-sm lg:text-xl;
+        @apply sm:text-sm md:text-base lg:text-xl;
     }
 }
