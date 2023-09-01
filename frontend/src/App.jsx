@@ -19,9 +19,6 @@ const App = () => {
                 <section className="">
                     <CommandLine />
                 </section>
-                <section className="">
-                    <Result />
-                </section>
             </section>
             <section className="px-8">
                 <Footer />

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import Result from "./Result";
 
 const CommandLine = () => {
     const inputRef = useRef(null);
@@ -18,6 +19,11 @@ const CommandLine = () => {
             setInput(e.target.innerText);
             if (e.target.innerText === "clear") {
                 setInput("");
+                e.target.innerText = "";
+            }
+
+            if (e.target.innerText === "home") {
+                setInput("home");
                 e.target.innerText = "";
             }
 
@@ -42,6 +48,7 @@ const CommandLine = () => {
                     onBlur={handleBlur}
                 ></div>
             </div>
+            <Result input={input} />
         </div>
     );
 };
