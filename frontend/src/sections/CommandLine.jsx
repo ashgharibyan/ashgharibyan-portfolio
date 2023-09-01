@@ -7,7 +7,9 @@ const CommandLine = () => {
                 text="(ashot_gharibyan_env) hello@Macbook-Pro ~ % "
                 extraStyles="flex-none"
             ></CodeLine>
-            <input type="text" className="textQuery grow text-[#1e1e1e]" />
+            <div className="px-3">
+                <input type="text" className="textQuery grow text-[#1e1e1e]" />
+            </div>
         </div>
     );
 };
