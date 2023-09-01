@@ -22,9 +22,9 @@ const App = () => {
                 <section className="">
                     <Result />
                 </section>
-                <section className="px-8">
-                    <Footer />
-                </section>
+            </section>
+            <section className="px-8">
+                <Footer />
             </section>
         </main>
     );
