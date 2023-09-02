@@ -14,20 +14,20 @@ export const headerCircleIcons = [
         color: "bg-[#ED695E]",
         image: clear,
         actionURL: "/#",
-        isResume: false,
+        iconType: "clear",
     },
     {
         name: "Resume icon",
         color: "bg-[#F4BD4F]",
         image: resume,
         actionURL: AshotGharibyanResume,
-        isResume: true,
+        iconType: "resume",
     },
     {
         name: "Contact icon",
         color: "bg-[#61C454]",
         image: contact,
         actionURL: "/#",
-        isResume: false,
+        iconType: "contact",
     },
 ];
