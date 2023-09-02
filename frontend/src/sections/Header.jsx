@@ -32,6 +32,8 @@ const Header = () => {
                             color={icon.color}
                             imgURL={icon.image}
                             altText={icon.name}
+                            actionURL={icon.actionURL}
+                            isResume={icon.isResume}
                         ></CircleButton>
                     ))}
                 </div>

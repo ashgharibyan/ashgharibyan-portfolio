@@ -1,11 +1,17 @@
-const CircleButton = ({ color, imgURL, altText }) => {
+const CircleButton = ({ color, imgURL, altText, actionURL, isResume }) => {
     return (
         <div
-            className={`group box-border flex h-16 w-16 items-center justify-center rounded-full sm:h-6 sm:w-6 lg:h-8 lg:w-8 ${color}`}
+            className={`group box-border flex h-16 w-16 items-center justify-center rounded-full lg:h-8 lg:w-8 sm:h-6 sm:w-6 ${color}`}
         >
-            <a href="#" className="invisible group-hover:visible">
+            <a
+                href={actionURL}
+                className="invisible group-hover:visible"
+                {...(isResume == true
+                    ? { download: "Ashot Gharibyan Resume" }
+                    : {})}
+            >
                 <img
-                    className=" h-10 w-10 object-scale-down sm:h-4 sm:w-4 lg:h-6 lg:w-6"
+                    className=" h-10 w-10 object-scale-down lg:h-6 lg:w-6 sm:h-4 sm:w-4"
                     src={imgURL}
                     alt={altText}
                 />
