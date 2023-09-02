@@ -10,11 +10,6 @@ const Header = () => {
         window.innerHeight,
     );
 
-    // useEffect(() => {
-    //     setcurrentWindowHeight(window.innerHeight);
-    //     setcurrentWindowWidth(window.innerWidth);
-    // }, [currentWindowWidth, currentWindowHeight]);
-
     const handleWindowSizeChange = () => {
         setcurrentWindowHeight(window.innerHeight);
         setcurrentWindowWidth(window.innerWidth);
@@ -30,7 +25,7 @@ const Header = () => {
     return (
         <header>
             <div className="flex items-center">
-                <div className="flex items-center justify-center gap-x-3 sm:gap-x-1 lg:gap-x-2">
+                <div className="flex items-center justify-center gap-x-3 lg:gap-x-2 sm:gap-x-1">
                     {headerCircleIcons.map((icon, idx) => (
                         <CircleButton
                             key={idx}
@@ -44,7 +39,7 @@ const Header = () => {
                     <img
                         src={headerMaterials[0].home_folder_icon}
                         alt={headerMaterials[0].name}
-                        className="h-12 sm:h-5 lg:h-8"
+                        className="h-12 lg:h-8 sm:h-5"
                     />
                     <h1 className="textQuery">
                         ashotgharibyan -- -zsh -- {currentWindowWidth}x
