@@ -4,6 +4,7 @@ import Result from "./Result";
 const CommandLine = () => {
     const inputRef = useRef(null);
     const [input, setInput] = useState("");
+    const [inputError, setInputError] = useState("");
 
     useEffect(() => {
         inputRef.current.focus();
@@ -34,6 +35,32 @@ const CommandLine = () => {
         }
     };
 
+    const handleInput = (e) => {
+        const maxLength = 10;
+        const target = e.target;
+        const currentLength = target.innerText.length;
+
+        if (currentLength > maxLength) {
+            const selection = window.getSelection();
+            const range = selection.getRangeAt(0);
+
+            // Truncate the text
+            target.innerText = target.innerText.substring(0, maxLength);
+
+            // Clear previous ranges
+            selection.removeAllRanges();
+
+            // Restore the range, setting cursor at the end
+            range.setStart(target.childNodes[0], maxLength);
+            range.setEnd(target.childNodes[0], maxLength);
+            selection.addRange(range);
+
+            setInputError("Max length is 10 characters");
+        } else {
+            setInputError("");
+        }
+    };
+
     return (
         <div className="flex flex-col items-start justify-start ">
             <div className="textQuery flex items-center gap-4">
@@ -46,8 +73,10 @@ const CommandLine = () => {
                     className="textQuery min-w-0 flex-grow whitespace-pre-wrap  break-words rounded border-none p-2 text-[#ffffff] outline-none"
                     onKeyDown={handleKeyDown}
                     onBlur={handleBlur}
+                    onInput={handleInput}
                 ></div>
             </div>
+            <div className="text-red-500">{inputError}</div>
             <Result input={input} />
         </div>
     );
