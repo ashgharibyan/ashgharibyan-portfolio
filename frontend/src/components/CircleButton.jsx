@@ -1,4 +1,9 @@
+import React, { useContext } from "react";
+import { InputContext } from "../contexts/InputContext";
+
 const CircleButton = ({ color, imgURL, altText, actionURL, iconType }) => {
+    const { setInput } = useContext(InputContext);
+
     return (
         <div
             className={`group box-border flex h-16 w-16 items-center justify-center rounded-full lg:h-8 lg:w-8 sm:h-6 sm:w-6 ${color}`}
@@ -9,8 +14,8 @@ const CircleButton = ({ color, imgURL, altText, actionURL, iconType }) => {
                 {...(iconType == "resume"
                     ? { download: "Ashot Gharibyan Resume" }
                     : {})}
-                {...(iconType == "resume"
-                    ? { download: "Ashot Gharibyan Resume" }
+                {...(iconType == "clear"
+                    ? { onClick: () => setInput("") }
                     : {})}
             >
                 <img

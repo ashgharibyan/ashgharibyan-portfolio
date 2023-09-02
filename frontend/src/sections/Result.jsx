@@ -1,9 +1,9 @@
 import CodeLine from "../components/CodeLine";
 
-const Result = ({ input }) => {
+const Result = ({ command }) => {
     return (
         <div>
-            <CodeLine text={input}></CodeLine>
+            <CodeLine text={command}></CodeLine>
         </div>
     );
 };

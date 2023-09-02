@@ -1,20 +1,25 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useContext } from "react";
 import Result from "./Result";
 import { headerCircleIcons } from "../constants";
+import { InputContext } from "../contexts/InputContext";
 
 const CommandLine = () => {
     const inputRef = useRef(null);
-    const [input, setInput] = useState("");
+    const { input, setInput } = useContext(InputContext);
     const [inputError, setInputError] = useState("");
+    const [command, setCommand] = useState("");
 
     useEffect(() => {
+        // sets the cursor to the input when page loads
         inputRef.current.focus();
     }, []);
 
+    // sets the cursor to the input when clicked somewhere else
     const handleBlur = () => {
         inputRef.current.focus();
     };
 
+    // handles the downloading of the resume when command : resume is entered
     const downloadFile = () => {
         // Create a new anchor element
         const a = document.createElement("a");
@@ -36,21 +41,23 @@ const CommandLine = () => {
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             e.preventDefault(); // Prevents a new line from being added
+            // ----------------- CLEAR -----------------
             setInput(e.target.innerText);
             if (e.target.innerText === "clear") {
                 setInput("");
+                setCommand("");
                 e.target.innerText = "";
-            }
-
-            if (e.target.innerText === "resume") {
-                setInput("Thank you for downloading my resume! 🎉🎉🎉");
+            } else if (e.target.innerText === "resume") {
+                // ----------------- RESUME -----------------
+                setCommand("Thank you for downloading my resume! 🎉🎉🎉");
                 downloadFile();
                 e.target.innerText = "";
             }
 
+            setCommand(e.target.innerText);
             // setting the div's text to empty string
             e.target.innerText = "";
-            // Your logic here
+            setInput("");
 
             // Clear the input error
             setInputError("");
@@ -82,6 +89,7 @@ const CommandLine = () => {
         } else {
             setInputError("");
         }
+        setInput(e.target.innerText);
     };
 
     return (
@@ -100,7 +108,7 @@ const CommandLine = () => {
                 ></div>
             </div>
             <div className="text-red-500">{inputError}</div>
-            <Result input={input} />
+            <Result command={command} />
         </div>
     );
 };
