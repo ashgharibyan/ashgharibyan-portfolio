@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import Result from "./Result";
+import { headerCircleIcons } from "../constants";
 
 const CommandLine = () => {
     const inputRef = useRef(null);
@@ -14,6 +15,24 @@ const CommandLine = () => {
         inputRef.current.focus();
     };
 
+    const downloadFile = () => {
+        // Create a new anchor element
+        const a = document.createElement("a");
+
+        // Set the href and download attributes for the anchor element
+        a.href = headerCircleIcons[1].actionURL;
+        a.download = "Ashot Gharibyan Resume.pdf";
+
+        // Append anchor to the DOM (not visible to the user)
+        document.body.appendChild(a);
+
+        // Programmatically trigger a click event on the anchor element
+        a.click();
+
+        // Remove the anchor element from the DOM
+        document.body.removeChild(a);
+    };
+
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             e.preventDefault(); // Prevents a new line from being added
@@ -23,14 +42,18 @@ const CommandLine = () => {
                 e.target.innerText = "";
             }
 
-            if (e.target.innerText === "home") {
-                setInput("home");
+            if (e.target.innerText === "resume") {
+                setInput("Thank you for downloading my resume! 🎉🎉🎉");
+                downloadFile();
                 e.target.innerText = "";
             }
 
             // setting the div's text to empty string
             e.target.innerText = "";
             // Your logic here
+
+            // Clear the input error
+            setInputError("");
             console.log("Enter pressed, current input:", input);
         }
     };
