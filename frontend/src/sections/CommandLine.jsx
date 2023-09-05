@@ -42,21 +42,21 @@ const CommandLine = () => {
         if (e.key === "Enter") {
             e.preventDefault(); // Prevents a new line from being added
             // ----------------- CLEAR -----------------
-            setInput(e.target.innerText);
-            if (e.target.innerText === "clear") {
+            setInput(e.target.value);
+            if (e.target.value === "clear") {
                 setInput("");
                 setCommand("");
-                e.target.innerText = "";
-            } else if (e.target.innerText === "resume") {
+                e.target.value = "";
+            } else if (e.target.value === "resume") {
                 // ----------------- RESUME -----------------
                 setCommand("Thank you for downloading my resume! 🎉🎉🎉");
                 downloadFile();
-                e.target.innerText = "";
+                e.target.value = "";
             }
 
-            setCommand(e.target.innerText);
+            setCommand(e.target.value);
             // setting the div's text to empty string
-            e.target.innerText = "";
+            e.target.value = "";
             setInput("");
 
             // Clear the input error
@@ -65,31 +65,17 @@ const CommandLine = () => {
         }
     };
 
-    const handleInput = (e) => {
-        const maxLength = 10;
-        const target = e.target;
-        const currentLength = target.innerText.length;
+    const handleChange = (e) => {
+        const maxLen = 10;
+        const currentLength = e.target.value.length;
 
-        if (currentLength > maxLength) {
-            const selection = window.getSelection();
-            const range = selection.getRangeAt(0);
-
-            // Truncate the text
-            target.innerText = target.innerText.substring(0, maxLength);
-
-            // Clear previous ranges
-            selection.removeAllRanges();
-
-            // Restore the range, setting cursor at the end
-            range.setStart(target.childNodes[0], maxLength);
-            range.setEnd(target.childNodes[0], maxLength);
-            selection.addRange(range);
-
+        if (currentLength > maxLen) {
+            e.target.value = e.target.value.substring(0, maxLen);
             setInputError("Max length is 10 characters");
         } else {
+            setInput(e.target.value);
             setInputError("");
         }
-        setInput(e.target.innerText);
     };
 
     return (
@@ -98,14 +84,23 @@ const CommandLine = () => {
                 <span className="flex-none">
                     (ashot_gharibyan_env) hello@Macbook-Pro ~ %
                 </span>
-                <div
+                <input
+                    ref={inputRef}
+                    type="text"
+                    className="textQuery min-w-0 flex-grow whitespace-pre-wrap  break-words rounded border-none p-2 text-[#010101] outline-none"
+                    onKeyDown={handleKeyDown}
+                    onBlur={handleBlur}
+                    value={input}
+                    onChange={handleChange}
+                />
+                {/* <div
                     ref={inputRef}
                     contentEditable={true}
                     className="textQuery min-w-0 flex-grow whitespace-pre-wrap  break-words rounded border-none p-2 text-[#ffffff] outline-none"
                     onKeyDown={handleKeyDown}
                     onBlur={handleBlur}
                     onInput={handleInput}
-                ></div>
+                ></div> */}
             </div>
             <div className="text-red-500">{inputError}</div>
             <Result command={command} />
@@ -114,3 +109,57 @@ const CommandLine = () => {
 };
 
 export default CommandLine;
+
+// const handleKeyDown = (e) => {
+//     if (e.key === "Enter") {
+//         e.preventDefault(); // Prevents a new line from being added
+//         // ----------------- CLEAR -----------------
+//         setInput(e.target.innerText);
+//         if (e.target.innerText === "clear") {
+//             setInput("");
+//             setCommand("");
+//             e.target.innerText = "";
+//         } else if (e.target.innerText === "resume") {
+//             // ----------------- RESUME -----------------
+//             setCommand("Thank you for downloading my resume! 🎉🎉🎉");
+//             downloadFile();
+//             e.target.innerText = "";
+//         }
+
+//         setCommand(e.target.innerText);
+//         // setting the div's text to empty string
+//         e.target.innerText = "";
+//         setInput("");
+
+//         // Clear the input error
+//         setInputError("");
+//         console.log("Enter pressed, current input:", input);
+//     }
+// };
+
+// const handleInput = (e) => {
+//     const maxLength = 10;
+//     const target = e.target;
+//     const currentLength = target.innerText.length;
+
+//     if (currentLength > maxLength) {
+//         const selection = window.getSelection();
+//         const range = selection.getRangeAt(0);
+
+//         // Truncate the text
+//         target.innerText = target.innerText.substring(0, maxLength);
+
+//         // Clear previous ranges
+//         selection.removeAllRanges();
+
+//         // Restore the range, setting cursor at the end
+//         range.setStart(target.childNodes[0], maxLength);
+//         range.setEnd(target.childNodes[0], maxLength);
+//         selection.addRange(range);
+
+//         setInputError("Max length is 10 characters");
+//     } else {
+//         setInputError("");
+//     }
+//     setInput(e.target.innerText);
+// };
