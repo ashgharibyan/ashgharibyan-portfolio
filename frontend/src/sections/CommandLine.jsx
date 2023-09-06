@@ -4,6 +4,7 @@ import { headerCircleIcons } from "../constants";
 import { InputContext } from "../contexts/InputContext";
 import About from "../results/About";
 import Contact from "../results/Contact";
+import CodeLine from "../components/CodeLine";
 
 const CommandLine = () => {
     const inputRef = useRef(null);
@@ -73,11 +74,18 @@ const CommandLine = () => {
 
         if (currentLength > maxLen) {
             e.target.value = e.target.value.substring(0, maxLen);
-            setInputError("Max length is 10 characters");
+            setInputError(
+                "Maximum length of the command is 10 characters. Please Try Again!",
+            );
         } else {
             setInput(e.target.value);
             setInputError("");
         }
+    };
+
+    const handleCommandError = () => {
+        setInputError("Command not found");
+        setCommand("");
     };
 
     return (
@@ -96,7 +104,6 @@ const CommandLine = () => {
                     onChange={handleChange}
                 />
             </div>
-            <div className="textQuery text-red-500">{inputError}</div>
             {command ? (
                 command === "help" ? (
                     <p>help</p>
@@ -105,11 +112,12 @@ const CommandLine = () => {
                 ) : command.toLowerCase() === "contact" ? (
                     <Contact />
                 ) : (
-                    "Command not found"
+                    handleCommandError()
                 )
             ) : (
                 ""
             )}
+            <CodeLine text={inputError} extraStyles={"text-red-500"} />
         </div>
     );
 };
