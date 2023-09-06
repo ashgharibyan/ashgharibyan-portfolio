@@ -3,6 +3,7 @@ import Result from "./Result";
 import { headerCircleIcons } from "../constants";
 import { InputContext } from "../contexts/InputContext";
 import About from "../results/About";
+import Contact from "../results/Contact";
 
 const CommandLine = () => {
     const inputRef = useRef(null);
@@ -101,6 +102,8 @@ const CommandLine = () => {
                     <p>help</p>
                 ) : command.toLowerCase() === "about" ? (
                     <About />
+                ) : command.toLowerCase() === "contact" ? (
+                    <Contact />
                 ) : (
                     "Command not found"
                 )
