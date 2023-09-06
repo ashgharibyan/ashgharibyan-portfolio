@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useContext } from "react";
 import Result from "./Result";
 import { headerCircleIcons } from "../constants";
 import { InputContext } from "../contexts/InputContext";
+import About from "../results/About";
 
 const CommandLine = () => {
     const inputRef = useRef(null);
@@ -93,73 +94,21 @@ const CommandLine = () => {
                     value={input}
                     onChange={handleChange}
                 />
-                {/* <div
-                    ref={inputRef}
-                    contentEditable={true}
-                    className="textQuery min-w-0 flex-grow whitespace-pre-wrap  break-words rounded border-none p-2 text-[#ffffff] outline-none"
-                    onKeyDown={handleKeyDown}
-                    onBlur={handleBlur}
-                    onInput={handleInput}
-                ></div> */}
             </div>
-            <div className="text-red-500">{inputError}</div>
-            <Result command={command} />
+            <div className="textQuery text-red-500">{inputError}</div>
+            {command ? (
+                command === "help" ? (
+                    <p>help</p>
+                ) : command.toLowerCase() === "about" ? (
+                    <About />
+                ) : (
+                    "Command not found"
+                )
+            ) : (
+                ""
+            )}
         </div>
     );
 };
 
 export default CommandLine;
-
-// const handleKeyDown = (e) => {
-//     if (e.key === "Enter") {
-//         e.preventDefault(); // Prevents a new line from being added
-//         // ----------------- CLEAR -----------------
-//         setInput(e.target.innerText);
-//         if (e.target.innerText === "clear") {
-//             setInput("");
-//             setCommand("");
-//             e.target.innerText = "";
-//         } else if (e.target.innerText === "resume") {
-//             // ----------------- RESUME -----------------
-//             setCommand("Thank you for downloading my resume! 🎉🎉🎉");
-//             downloadFile();
-//             e.target.innerText = "";
-//         }
-
-//         setCommand(e.target.innerText);
-//         // setting the div's text to empty string
-//         e.target.innerText = "";
-//         setInput("");
-
-//         // Clear the input error
-//         setInputError("");
-//         console.log("Enter pressed, current input:", input);
-//     }
-// };
-
-// const handleInput = (e) => {
-//     const maxLength = 10;
-//     const target = e.target;
-//     const currentLength = target.innerText.length;
-
-//     if (currentLength > maxLength) {
-//         const selection = window.getSelection();
-//         const range = selection.getRangeAt(0);
-
-//         // Truncate the text
-//         target.innerText = target.innerText.substring(0, maxLength);
-
-//         // Clear previous ranges
-//         selection.removeAllRanges();
-
-//         // Restore the range, setting cursor at the end
-//         range.setStart(target.childNodes[0], maxLength);
-//         range.setEnd(target.childNodes[0], maxLength);
-//         selection.addRange(range);
-
-//         setInputError("Max length is 10 characters");
-//     } else {
-//         setInputError("");
-//     }
-//     setInput(e.target.innerText);
-// };
