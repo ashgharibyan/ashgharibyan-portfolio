@@ -89,7 +89,7 @@ const CommandLine = () => {
                 <input
                     ref={inputRef}
                     type="text"
-                    className="textQuery min-w-0 flex-grow whitespace-pre-wrap  break-words rounded border-none p-2 text-[#010101] outline-none"
+                    className="textQuery min-w-0 flex-grow whitespace-pre-wrap  break-words rounded border-none bg-[#1e1e1e] p-2 text-[white] outline-none"
                     onKeyDown={handleKeyDown}
                     onBlur={handleBlur}
                     value={input}
