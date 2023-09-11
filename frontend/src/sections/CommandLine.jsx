@@ -1,10 +1,15 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
-import Result from "./Result";
 import { headerCircleIcons } from "../constants";
 import { InputContext } from "../contexts/InputContext";
-import About from "../results/About";
-import Contact from "../results/Contact";
 import CodeLine from "../components/CodeLine";
+import {
+    About,
+    Contact,
+    Education,
+    Experience,
+    Projects,
+    Stacks,
+} from "../results/index";
 
 const CommandLine = () => {
     const inputRef = useRef(null);
@@ -111,6 +116,8 @@ const CommandLine = () => {
                     <About />
                 ) : command.toLowerCase() === "contact" ? (
                     <Contact />
+                ) : command.toLowerCase() === "education" ? (
+                    <Education />
                 ) : (
                     handleCommandError()
                 )
