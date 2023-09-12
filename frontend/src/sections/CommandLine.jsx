@@ -13,8 +13,7 @@ import {
 
 const CommandLine = () => {
     const inputRef = useRef(null);
-    const { input, setInput } = useContext(InputContext);
-    const { command, setCommand } = useContext(InputContext);
+    const { input, setInput, command, setCommand } = useContext(InputContext);
     const [inputError, setInputError] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 
@@ -69,7 +68,7 @@ const CommandLine = () => {
                     "noreferrer",
                 );
             } else if (e.target.value === "linked-in") {
-                // ----------------- Github -----------------
+                // ----------------- Linked-in -----------------
                 window.open(
                     "https://www.linkedin.com/in/ashgharibyan/",
                     "_blank",
@@ -101,11 +100,6 @@ const CommandLine = () => {
             setInput(e.target.value);
             setInputError("");
         }
-    };
-
-    const handleCommandError = () => {
-        setInputError("Command not found");
-        setCommand("");
     };
 
     return (
@@ -171,7 +165,10 @@ const CommandLine = () => {
                         extraStyles={"text-[#61C454]"}
                     />
                 ) : (
-                    handleCommandError()
+                    <CodeLine
+                        text={"Command not found"}
+                        extraStyles={"text-red-500"}
+                    />
                 )
             ) : (
                 ""
