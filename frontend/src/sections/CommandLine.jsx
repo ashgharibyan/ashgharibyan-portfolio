@@ -14,8 +14,8 @@ import {
 const CommandLine = () => {
     const inputRef = useRef(null);
     const { input, setInput } = useContext(InputContext);
+    const { command, setCommand } = useContext(InputContext);
     const [inputError, setInputError] = useState("");
-    const [command, setCommand] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 
     useEffect(() => {

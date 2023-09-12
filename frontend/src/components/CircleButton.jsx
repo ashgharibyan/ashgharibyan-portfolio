@@ -2,7 +2,16 @@ import React, { useContext } from "react";
 import { InputContext } from "../contexts/InputContext";
 
 const CircleButton = ({ color, imgURL, altText, actionURL, iconType }) => {
-    const { setInput } = useContext(InputContext);
+    const { setInput, setCommand } = useContext(InputContext);
+
+    const handleClear = () => {
+        setInput("");
+        setCommand("");
+    };
+
+    const handleContact = () => {
+        setCommand("contact");
+    };
 
     return (
         <div
@@ -14,12 +23,8 @@ const CircleButton = ({ color, imgURL, altText, actionURL, iconType }) => {
                 {...(iconType == "resume"
                     ? { download: "Ashot Gharibyan Resume" }
                     : {})}
-                {...(iconType == "clear"
-                    ? { onClick: () => setInput("") }
-                    : {})}
-                {...(iconType == "contact"
-                    ? { onClick: () => setInput("contact") }
-                    : {})}
+                {...(iconType == "clear" ? { onClick: handleClear } : {})}
+                {...(iconType == "contact" ? { onClick: handleContact } : {})}
             >
                 <img
                     className=" h-10 w-10 object-scale-down lg:h-6 lg:w-6 sm:h-4 sm:w-4"
