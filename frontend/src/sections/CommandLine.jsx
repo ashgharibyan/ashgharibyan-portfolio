@@ -125,8 +125,8 @@ const CommandLine = () => {
                 />
             </div>
             {command ? (
-                command === "help" ? (
-                    <p>help</p>
+                command.toLowerCase() === "clear" ? (
+                    ""
                 ) : command.toLowerCase() === "about" ? (
                     <About />
                 ) : command.toLowerCase() === "contact" ? (

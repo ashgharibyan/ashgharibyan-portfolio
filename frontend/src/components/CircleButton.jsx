@@ -17,6 +17,9 @@ const CircleButton = ({ color, imgURL, altText, actionURL, iconType }) => {
                 {...(iconType == "clear"
                     ? { onClick: () => setInput("") }
                     : {})}
+                {...(iconType == "contact"
+                    ? { onClick: () => setInput("contact") }
+                    : {})}
             >
                 <img
                     className=" h-10 w-10 object-scale-down lg:h-6 lg:w-6 sm:h-4 sm:w-4"
