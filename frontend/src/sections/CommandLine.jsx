@@ -16,6 +16,7 @@ const CommandLine = () => {
     const { input, setInput } = useContext(InputContext);
     const [inputError, setInputError] = useState("");
     const [command, setCommand] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
 
     useEffect(() => {
         // sets the cursor to the input when page loads
@@ -54,12 +55,26 @@ const CommandLine = () => {
             if (e.target.value === "clear") {
                 setInput("");
                 setCommand("");
-                e.target.value = "";
             } else if (e.target.value === "resume") {
                 // ----------------- RESUME -----------------
-                setCommand("Thank you for downloading my resume! 🎉🎉🎉");
+                setSuccessMessage(
+                    "Thank you for downloading my resume! 🎉🎉🎉",
+                );
                 downloadFile();
-                e.target.value = "";
+            } else if (e.target.value === "github") {
+                // ----------------- Github -----------------
+                window.open(
+                    "https://github.com/ashgharibyan",
+                    "_blank",
+                    "noreferrer",
+                );
+            } else if (e.target.value === "linked-in") {
+                // ----------------- Github -----------------
+                window.open(
+                    "https://www.linkedin.com/in/ashgharibyan/",
+                    "_blank",
+                    "noreferrer",
+                );
             }
 
             setCommand(e.target.value);
@@ -74,13 +89,13 @@ const CommandLine = () => {
     };
 
     const handleChange = (e) => {
-        const maxLen = 10;
+        const maxLen = 12;
         const currentLength = e.target.value.length;
 
         if (currentLength > maxLen) {
             e.target.value = e.target.value.substring(0, maxLen);
             setInputError(
-                "Maximum length of the command is 10 characters. Please Try Again!",
+                "Maximum length of the command is 12 characters. Please Try Again!",
             );
         } else {
             setInput(e.target.value);
@@ -97,7 +112,7 @@ const CommandLine = () => {
         <div className="flex flex-col items-start justify-start ">
             <div className="textQuery flex items-center gap-4">
                 <span className="flex-none">
-                    (ashot_gharibyan_env) hello@Macbook-Pro ~ %
+                    (portfolio_env) hello@guest ~ %
                 </span>
                 <input
                     ref={inputRef}
@@ -122,8 +137,39 @@ const CommandLine = () => {
                     <Experience />
                 ) : command.toLowerCase() === "projects" ? (
                     <Projects />
-                ) : command.toLowerCase() === "stacks" ? (
+                ) : command.toLowerCase() === "tools" ? (
                     <Stacks />
+                ) : command.toLowerCase() === "technologies" ? (
+                    <Stacks />
+                ) : command.toLowerCase() === "resume" ? (
+                    <CodeLine
+                        text={successMessage}
+                        extraStyles={"text-[#61C454]"}
+                    />
+                ) : command.toLowerCase() === "github" ? (
+                    <CodeLine
+                        text={
+                            <a
+                                href="https://github.com/ashgharibyan"
+                                target="_blank"
+                            >
+                                Github: www.github.com/ashgharibyan
+                            </a>
+                        }
+                        extraStyles={"text-[#61C454]"}
+                    />
+                ) : command.toLowerCase() === "linked-in" ? (
+                    <CodeLine
+                        text={
+                            <a
+                                href="https://www.linkedin.com/in/ashgharibyan/"
+                                target="_blank"
+                            >
+                                Linked-in: www.linkedin.com/in/ashgharibyan/
+                            </a>
+                        }
+                        extraStyles={"text-[#61C454]"}
+                    />
                 ) : (
                     handleCommandError()
                 )
