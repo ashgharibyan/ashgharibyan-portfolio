@@ -7,8 +7,8 @@ const Contact = () => {
             <CodeLine text={".."} extraStyles={"text-[#ED695E]"} />
             <CodeLine text={"..."} extraStyles={"text-[#ED695E]"} />
             <CodeLine
-                text={"------------------------------------------------"}
-                extraStyles={"text-[#ED695E]"}
+                text={"--------------------CONTACT---------------------"}
+                extraStyles={"text-[#F4BD4F]"}
             />
             <CodeLine
                 text={"FEEL FREE TO REACH OUT TO ME!"}

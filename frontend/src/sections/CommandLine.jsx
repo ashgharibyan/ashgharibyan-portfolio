@@ -118,6 +118,8 @@ const CommandLine = () => {
                     <Contact />
                 ) : command.toLowerCase() === "education" ? (
                     <Education />
+                ) : command.toLowerCase() === "experience" ? (
+                    <Experience />
                 ) : (
                     handleCommandError()
                 )
