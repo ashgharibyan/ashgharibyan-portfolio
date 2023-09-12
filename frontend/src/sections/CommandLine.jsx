@@ -13,7 +13,8 @@ import {
 
 const CommandLine = () => {
     const inputRef = useRef(null);
-    const { input, setInput, command, setCommand } = useContext(InputContext);
+    const { input, setInput, command, setCommand, nameRef } =
+        useContext(InputContext);
     const [inputError, setInputError] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 
@@ -23,8 +24,12 @@ const CommandLine = () => {
     }, []);
 
     // sets the cursor to the input when clicked somewhere else
-    const handleBlur = () => {
-        inputRef.current.focus();
+    const handleBlur = (currentBlur) => {
+        if (currentBlur === "") {
+            inputRef.current.focus();
+        } else if (currentBlur === "contact") {
+            nameRef.current.focus();
+        }
     };
 
     // handles the downloading of the resume when command : resume is entered
@@ -49,8 +54,10 @@ const CommandLine = () => {
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             e.preventDefault(); // Prevents a new line from being added
+
+            setInput("");
+
             // ----------------- CLEAR -----------------
-            setInput(e.target.value);
             if (e.target.value === "clear") {
                 setInput("");
                 setCommand("");
@@ -74,12 +81,16 @@ const CommandLine = () => {
                     "_blank",
                     "noreferrer",
                 );
+            } else if (e.target.value === "contact") {
+                // ----------------- Contact -----------------
+                // nameRef.current.focus();
+                inputRef.current.read;
+                setInput(e.target.value);
             }
 
             setCommand(e.target.value);
             // setting the div's text to empty string
             e.target.value = "";
-            setInput("");
 
             // Clear the input error
             setInputError("");
@@ -116,6 +127,7 @@ const CommandLine = () => {
                     onBlur={handleBlur}
                     value={input}
                     onChange={handleChange}
+                    readOnly={command === "contact" ? true : false}
                 />
             </div>
             {command ? (

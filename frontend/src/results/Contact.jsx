@@ -1,9 +1,12 @@
 import CodeLine from "../components/CodeLine";
+import Email from "../components/Email";
 
 const Contact = () => {
     return (
         <div>
-            <CodeLine text={"."} extraStyles={"text-[#ED695E]"} />
+            <Email />
+
+            {/* <CodeLine text={"."} extraStyles={"text-[#ED695E]"} />
             <CodeLine text={".."} extraStyles={"text-[#ED695E]"} />
             <CodeLine text={"..."} extraStyles={"text-[#ED695E]"} />
             <CodeLine
@@ -69,7 +72,7 @@ const Contact = () => {
             <CodeLine text={".."} extraStyles={"text-[#F4BD4F]"} />
             <CodeLine text={"."} extraStyles={"text-[#F4BD4F]"} />
             <CodeLine text={""} />
-            <CodeLine text={""} />
+            <CodeLine text={""} /> */}
         </div>
     );
 };
