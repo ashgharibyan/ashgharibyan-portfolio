@@ -3,9 +3,9 @@ import CodeLine from "../components/CodeLine";
 const Education = () => {
     return (
         <div className="textQuery">
-            <CodeLine text={"."} extraStyles={"text-[#ED695E]"} />
-            <CodeLine text={".."} extraStyles={"text-[#ED695E]"} />
-            <CodeLine text={"..."} extraStyles={"text-[#ED695E]"} />
+            <CodeLine text={"."} extraStyles={"text-[#F4BD4F]"} />
+            <CodeLine text={".."} extraStyles={"text-[#F4BD4F]"} />
+            <CodeLine text={"..."} extraStyles={"text-[#F4BD4F]"} />
             <CodeLine
                 text={"--------------------EDUCATION---------------------"}
                 extraStyles={"text-[#F4BD4F]"}

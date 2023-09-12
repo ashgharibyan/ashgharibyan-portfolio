@@ -3,9 +3,9 @@ import CodeLine from "../components/CodeLine";
 const Experience = () => {
     return (
         <div>
-            <CodeLine text={"."} extraStyles={"text-[#ED695E]"} />
-            <CodeLine text={".."} extraStyles={"text-[#ED695E]"} />
-            <CodeLine text={"..."} extraStyles={"text-[#ED695E]"} />
+            <CodeLine text={"."} extraStyles={"text-[#F4BD4F]"} />
+            <CodeLine text={".."} extraStyles={"text-[#F4BD4F]"} />
+            <CodeLine text={"..."} extraStyles={"text-[#F4BD4F]"} />
             <CodeLine
                 text={"--------------------EXPERIENCE---------------------"}
                 extraStyles={"text-[#F4BD4F]"}
@@ -72,6 +72,9 @@ const Experience = () => {
                     "- Developed workflow systems to improve team organization and productivity by 50% using ClickUp project management tool, Miro, Slack, increased team planning and progress report meetings, proper task distribution"
                 }
             />
+
+            <CodeLine text={""} />
+            <CodeLine text={""} />
         </div>
     );
 };

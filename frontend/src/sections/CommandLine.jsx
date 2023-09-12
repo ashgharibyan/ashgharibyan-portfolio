@@ -120,6 +120,10 @@ const CommandLine = () => {
                     <Education />
                 ) : command.toLowerCase() === "experience" ? (
                     <Experience />
+                ) : command.toLowerCase() === "projects" ? (
+                    <Projects />
+                ) : command.toLowerCase() === "stacks" ? (
+                    <Stacks />
                 ) : (
                     handleCommandError()
                 )

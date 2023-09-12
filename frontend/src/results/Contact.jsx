@@ -8,7 +8,7 @@ const Contact = () => {
             <CodeLine text={"..."} extraStyles={"text-[#ED695E]"} />
             <CodeLine
                 text={"--------------------CONTACT---------------------"}
-                extraStyles={"text-[#F4BD4F]"}
+                extraStyles={"text-[#ED695E]"}
             />
             <CodeLine
                 text={"FEEL FREE TO REACH OUT TO ME!"}
@@ -68,7 +68,8 @@ const Contact = () => {
             <CodeLine text={"..."} extraStyles={"text-[#F4BD4F]"} />
             <CodeLine text={".."} extraStyles={"text-[#F4BD4F]"} />
             <CodeLine text={"."} extraStyles={"text-[#F4BD4F]"} />
-            <CodeLine text={""} extraStyles={""} />
+            <CodeLine text={""} />
+            <CodeLine text={""} />
         </div>
     );
 };
