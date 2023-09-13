@@ -1,5 +1,5 @@
 import emailjs from "emailjs-com";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import CodeLine from "./CodeLine";
 import { InputContext } from "../contexts/InputContext";
 
@@ -9,11 +9,14 @@ const Email = () => {
     const [message, setMessage] = useState("");
     const { nameRef, emailRef, messageRef, sendRef } = useContext(InputContext);
     const [inputError, setInputError] = useState("");
-    const [showEmail, setShowEmail] = useState(false);
-    const [showMessage, setShowMessage] = useState(false);
-    const [sendMessage, setSendMessage] = useState(false);
+    const [showEmail, setShowEmail] = useState(true);
+    const [showMessage, setShowMessage] = useState(true);
+    const [sendMessage, setSendMessage] = useState(true);
     const [sendYN, setSendYN] = useState("");
-
+    // const nameRef = useRef(null);
+    // const emailRef = useRef(null);
+    // const messageRef = useRef(null);
+    // const sendRef = useRef(null);
     function sendEmail(e) {}
 
     useEffect(() => {
@@ -159,7 +162,7 @@ const Email = () => {
                     onKeyDown={handleNameKeyDown}
                     value={name}
                     onChange={handleNameChange}
-                    readOnly={showEmail ? true : false}
+                    // readOnly={showEmail ? true : false}
                 />
             </div>
 
@@ -173,7 +176,7 @@ const Email = () => {
                         onKeyDown={handleEmailKeyDown}
                         value={email}
                         onChange={handleEmailChange}
-                        readOnly={showMessage ? true : false}
+                        // readOnly={showMessage ? true : false}
                     />
                 </div>
             )}
@@ -190,7 +193,7 @@ const Email = () => {
                         onKeyDown={handleMessageKeyDown}
                         value={message}
                         onChange={handleMessageChange}
-                        readOnly={sendMessage ? true : false}
+                        // readOnly={sendMessage ? true : false}
                     />
                 </div>
             )}
