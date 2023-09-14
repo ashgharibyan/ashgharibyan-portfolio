@@ -83,7 +83,7 @@ const CommandLine = () => {
                 );
             } else if (e.target.value === "contact") {
                 // ----------------- Contact -----------------
-                // nameRef.current.focus();
+                // nameRef.current.focus();  - error
                 inputRef.current.read;
                 setInput(e.target.value);
             }
