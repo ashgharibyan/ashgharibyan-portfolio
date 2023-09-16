@@ -7,15 +7,22 @@ const Email = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-    const { nameRef } = useContext(InputContext);
+    const {
+        nameRef,
+        inputRef,
+        setCommand,
+        setInput,
+        setSentMessage,
+        setNotSentMessage,
+    } = useContext(InputContext);
     const [inputError, setInputError] = useState("");
     const [showName, setShowName] = useState(true);
     const [showEmail, setShowEmail] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
     const [sendMessage, setSendMessage] = useState(false);
     const [sendYN, setSendYN] = useState("");
-    const [successMessage, setSuccessMessage] = useState("");
-    const [notSentMessage, setNotSentMessage] = useState("");
+
+    const [goBack, setGoBack] = useState(false);
     // const nameRef = useRef(null);
     const emailRef = useRef(null);
     const messageRef = useRef(null);
@@ -37,6 +44,10 @@ const Email = () => {
             sendRef.current.focus();
         }
     }, [showEmail, showMessage, sendMessage]);
+
+    const goBackToInput = () => {
+        inputRef.current.focus();
+    };
 
     const handleNameKeyDown = (e) => {
         if (e.key === "Enter") {
@@ -129,6 +140,7 @@ const Email = () => {
                 sendRef.current.focus();
             } else if (sendYN === "n") {
                 setNotSentMessage("Message not sent!");
+                setInputError("");
                 setEmail("");
                 setMessage("");
                 setName("");
@@ -136,8 +148,13 @@ const Email = () => {
                 setSendMessage(false);
                 setShowMessage(false);
                 setShowEmail(false);
+
+                setInput("");
+                setCommand("");
+                goBackToInput();
             } else if (sendYN === "y") {
-                setSuccessMessage("Message sent!");
+                setSentMessage("Message sent!");
+                setInputError("");
                 const messageParams = {
                     name: name,
                     email: email,
@@ -150,6 +167,10 @@ const Email = () => {
                 setSendMessage(false);
                 setShowMessage(false);
                 setShowEmail(false);
+
+                setInput("");
+                setCommand("");
+                goBackToInput();
             } else {
                 setInputError("Please enter 'y' or 'n' to send the message!");
             }
@@ -181,7 +202,6 @@ const Email = () => {
 
     return (
         <div>
-            <CodeLine text={""} />
             {showName && (
                 <div className="textQuery flex items-center gap-4">
                     <span className="flex-none">Please enter your name:</span>
@@ -245,15 +265,6 @@ const Email = () => {
 
             {inputError && (
                 <CodeLine text={inputError} extraStyles={"text-red-500"} />
-            )}
-            {successMessage && (
-                <CodeLine
-                    text={successMessage}
-                    extraStyles={"text-green-500"}
-                />
-            )}
-            {notSentMessage && (
-                <CodeLine text={notSentMessage} extraStyles={"text-red-500"} />
             )}
         </div>
     );

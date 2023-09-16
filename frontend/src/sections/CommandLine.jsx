@@ -12,9 +12,18 @@ import {
 } from "../results/index";
 
 const CommandLine = () => {
-    const inputRef = useRef(null);
-    const { input, setInput, command, setCommand, nameRef } =
-        useContext(InputContext);
+    const {
+        input,
+        setInput,
+        command,
+        setCommand,
+        nameRef,
+        inputRef,
+        sentMessage,
+        notSentMessage,
+        setSentMessage,
+        setNotSentMessage,
+    } = useContext(InputContext);
     const [inputError, setInputError] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 
@@ -56,7 +65,8 @@ const CommandLine = () => {
             e.preventDefault(); // Prevents a new line from being added
 
             setInput("");
-
+            setSentMessage("");
+            setNotSentMessage("");
             // ----------------- CLEAR -----------------
             if (e.target.value === "clear") {
                 setInput("");
@@ -84,7 +94,7 @@ const CommandLine = () => {
             } else if (e.target.value === "contact") {
                 // ----------------- Contact -----------------
                 // nameRef.current.focus();  - error
-                inputRef.current.read;
+                // inputRef.current.read;
                 setInput(e.target.value);
             }
 
@@ -185,7 +195,16 @@ const CommandLine = () => {
             ) : (
                 ""
             )}
-            <CodeLine text={inputError} extraStyles={"text-red-500"} />
+            {inputError && (
+                <CodeLine text={inputError} extraStyles={"text-red-500"} />
+            )}
+
+            {sentMessage && (
+                <CodeLine text={sentMessage} extraStyles={"text-green-500"} />
+            )}
+            {notSentMessage && (
+                <CodeLine text={notSentMessage} extraStyles={"text-red-500"} />
+            )}
         </div>
     );
 };
