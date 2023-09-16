@@ -7,22 +7,36 @@ const Email = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-    const { nameRef, emailRef, messageRef, sendRef } = useContext(InputContext);
+    const { nameRef } = useContext(InputContext);
     const [inputError, setInputError] = useState("");
-    const [showEmail, setShowEmail] = useState(true);
-    const [showMessage, setShowMessage] = useState(true);
-    const [sendMessage, setSendMessage] = useState(true);
+    const [showName, setShowName] = useState(true);
+    const [showEmail, setShowEmail] = useState(false);
+    const [showMessage, setShowMessage] = useState(false);
+    const [sendMessage, setSendMessage] = useState(false);
     const [sendYN, setSendYN] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
+    const [notSentMessage, setNotSentMessage] = useState("");
     // const nameRef = useRef(null);
-    // const emailRef = useRef(null);
-    // const messageRef = useRef(null);
-    // const sendRef = useRef(null);
+    const emailRef = useRef(null);
+    const messageRef = useRef(null);
+    const sendRef = useRef(null);
     function sendEmail(e) {}
 
     useEffect(() => {
         // sets the cursor to the input when page loads
-        nameRef.current.focus();
-    }, []);
+        if (showName) {
+            nameRef.current.focus();
+        }
+        if (showEmail) {
+            emailRef.current.focus();
+        }
+        if (showMessage) {
+            messageRef.current.focus();
+        }
+        if (sendMessage) {
+            sendRef.current.focus();
+        }
+    }, [showEmail, showMessage, sendMessage]);
 
     const handleNameKeyDown = (e) => {
         if (e.key === "Enter") {
@@ -32,7 +46,6 @@ const Email = () => {
                 nameRef.current.focus();
             } else {
                 setShowEmail(true);
-                emailRef.current.focus();
             }
         }
     };
@@ -60,7 +73,6 @@ const Email = () => {
                 emailRef.current.focus();
             } else {
                 setShowMessage(true);
-                messageRef.current.focus();
             }
         }
     };
@@ -88,7 +100,6 @@ const Email = () => {
                 messageRef.current.focus();
             } else {
                 setSendMessage(true);
-                sendRef.current.focus();
             }
         }
     };
@@ -117,12 +128,30 @@ const Email = () => {
                 );
                 sendRef.current.focus();
             } else if (sendYN === "n") {
-                setInputError("Message not sent!");
+                setNotSentMessage("Message not sent!");
+                setEmail("");
+                setMessage("");
+                setName("");
+                setShowName(false);
+                setSendMessage(false);
+                setShowMessage(false);
+                setShowEmail(false);
             } else if (sendYN === "y") {
-                setInputError("Message sent!");
+                setSuccessMessage("Message sent!");
+                const messageParams = {
+                    name: name,
+                    email: email,
+                    message: message,
+                };
+                setEmail("");
+                setMessage("");
+                setName("");
+                setShowName(false);
+                setSendMessage(false);
+                setShowMessage(false);
+                setShowEmail(false);
             } else {
                 setInputError("Please enter 'y' or 'n' to send the message!");
-                sendRef.current.focus();
             }
         }
     };
@@ -153,18 +182,20 @@ const Email = () => {
     return (
         <div>
             <CodeLine text={""} />
-            <div className="textQuery flex items-center gap-4">
-                <span className="flex-none">Please enter your name:</span>
-                <input
-                    ref={nameRef}
-                    type="text"
-                    className="textQuery min-w-0 flex-grow whitespace-pre-wrap  break-words rounded border-none bg-[#1e1e1e] p-2 text-[white] outline-none"
-                    onKeyDown={handleNameKeyDown}
-                    value={name}
-                    onChange={handleNameChange}
-                    // readOnly={showEmail ? true : false}
-                />
-            </div>
+            {showName && (
+                <div className="textQuery flex items-center gap-4">
+                    <span className="flex-none">Please enter your name:</span>
+                    <input
+                        ref={nameRef}
+                        type="text"
+                        className="textQuery min-w-0 flex-grow whitespace-pre-wrap  break-words rounded border-none bg-[#1e1e1e] p-2 text-[white] outline-none"
+                        onKeyDown={handleNameKeyDown}
+                        value={name}
+                        onChange={handleNameChange}
+                        readOnly={showEmail ? true : false}
+                    />
+                </div>
+            )}
 
             {showEmail && (
                 <div className="textQuery flex items-center gap-4">
@@ -176,7 +207,7 @@ const Email = () => {
                         onKeyDown={handleEmailKeyDown}
                         value={email}
                         onChange={handleEmailChange}
-                        // readOnly={showMessage ? true : false}
+                        readOnly={showMessage ? true : false}
                     />
                 </div>
             )}
@@ -193,7 +224,7 @@ const Email = () => {
                         onKeyDown={handleMessageKeyDown}
                         value={message}
                         onChange={handleMessageChange}
-                        // readOnly={sendMessage ? true : false}
+                        readOnly={sendMessage ? true : false}
                     />
                 </div>
             )}
@@ -212,7 +243,18 @@ const Email = () => {
                 </div>
             )}
 
-            <CodeLine text={inputError} extraStyles={"text-red-500"} />
+            {inputError && (
+                <CodeLine text={inputError} extraStyles={"text-red-500"} />
+            )}
+            {successMessage && (
+                <CodeLine
+                    text={successMessage}
+                    extraStyles={"text-green-500"}
+                />
+            )}
+            {notSentMessage && (
+                <CodeLine text={notSentMessage} extraStyles={"text-red-500"} />
+            )}
         </div>
     );
 };
