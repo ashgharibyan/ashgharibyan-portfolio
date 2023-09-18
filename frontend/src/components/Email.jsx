@@ -29,7 +29,34 @@ const Email = () => {
     const sendRef = useRef(null);
 
     //! TODO: Add emailjs to send email
-    function sendEmail(e) {}
+    function sendEmail(name, email, message) {
+        const params = {
+            user_name: name,
+            user_email: email,
+            user_message: message,
+        };
+        3;
+        emailjs
+            .send(
+                "service_cm5zdpj",
+                "template_91ah97u",
+                params,
+                "mairkk-goJ07o5lk2",
+            )
+            .then(
+                (result) => {
+                    console.log(result.text);
+                    setSentMessage("Message sent!");
+                },
+                (error) => {
+                    console.log("Error sending the message!");
+                    console.log(error.text);
+                    setInputError(
+                        "Error sending the message! Please try again or send directly to ashghcode@gmail.com.",
+                    );
+                },
+            );
+    }
 
     useEffect(() => {
         // sets the cursor to the input when page loads
@@ -142,6 +169,8 @@ const Email = () => {
                 sendRef.current.focus();
             } else if (sendYN === "n") {
                 setNotSentMessage("Message not sent!");
+
+                // Resetting everything
                 setInputError("");
                 setEmail("");
                 setMessage("");
@@ -150,18 +179,15 @@ const Email = () => {
                 setSendMessage(false);
                 setShowMessage(false);
                 setShowEmail(false);
-
                 setInput("");
                 setCommand("");
                 goBackToInput();
             } else if (sendYN === "y") {
-                setSentMessage("Message sent!");
+                // Sending the email
                 setInputError("");
-                const messageParams = {
-                    name: name,
-                    email: email,
-                    message: message,
-                };
+                sendEmail(name, email, message);
+
+                // Resetting everything
                 setEmail("");
                 setMessage("");
                 setName("");

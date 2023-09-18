@@ -14,6 +14,7 @@ const CircleButton = ({ color, imgURL, altText, actionURL, iconType }) => {
 
     const handleContact = () => {
         setCommand("contact");
+        setInput("contact");
     };
 
     return (
