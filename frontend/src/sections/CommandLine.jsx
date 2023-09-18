@@ -26,6 +26,8 @@ const CommandLine = () => {
         setNotSentMessage,
         inputError,
         setInputError,
+        commandBlur,
+        setCommandBlur,
     } = useContext(InputContext);
     const [successMessage, setSuccessMessage] = useState("");
 
@@ -35,12 +37,13 @@ const CommandLine = () => {
     }, []);
 
     // sets the cursor to the input when clicked somewhere else
-    const handleBlur = (currentBlur) => {
-        if (currentBlur === "") {
-            inputRef.current.focus();
-        } else if (currentBlur === "contact") {
-            nameRef.current.focus();
-        }
+    const handleBlur = () => {
+        inputRef.current.focus();
+        // if (currentBlur === "") {
+        //     inputRef.current.focus();
+        // } else if (currentBlur === "contact") {
+        //     nameRef.current.focus();
+        // }
     };
 
     // handles the downloading of the resume when command : resume is entered
@@ -97,6 +100,7 @@ const CommandLine = () => {
                 // ----------------- Contact -----------------
                 // nameRef.current.focus();  - error
                 // inputRef.current.read;
+                setCommandBlur(false);
                 setInput(e.target.value);
             }
 
@@ -106,7 +110,7 @@ const CommandLine = () => {
 
             // Clear the input error
             setInputError("");
-            console.log("Enter pressed, current input:", input);
+            // console.log("Enter pressed, current input:", input);
         }
     };
 
@@ -136,7 +140,7 @@ const CommandLine = () => {
                     type="text"
                     className="textQuery min-w-0 flex-grow whitespace-pre-wrap  break-words rounded border-none bg-[#1e1e1e] p-2 text-[white] outline-none"
                     onKeyDown={handleKeyDown}
-                    onBlur={handleBlur}
+                    onBlur={commandBlur ? handleBlur : null}
                     value={input}
                     onChange={handleChange}
                     readOnly={command === "contact" ? true : false}

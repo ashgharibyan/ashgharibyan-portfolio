@@ -24,6 +24,11 @@ const Email = () => {
     const [sendMessage, setSendMessage] = useState(false);
     const [sendYN, setSendYN] = useState("");
 
+    const [nameBlur, setNameBlur] = useState(true);
+    const [emailBlur, setEmailBlur] = useState(true);
+    const [messageBlur, setMessageBlur] = useState(true);
+    const [ynBlur, setYNBlur] = useState(true);
+
     const [goBack, setGoBack] = useState(false);
     // const nameRef = useRef(null);
     const emailRef = useRef(null);
@@ -88,6 +93,7 @@ const Email = () => {
                 nameRef.current.focus();
             } else {
                 setShowEmail(true);
+                setNameBlur(false);
                 setContactInputError("");
             }
         }
@@ -119,6 +125,7 @@ const Email = () => {
             } else {
                 setContactInputError("");
                 setShowMessage(true);
+                setEmailBlur(false);
             }
         }
     };
@@ -162,6 +169,7 @@ const Email = () => {
             );
         } else {
             setMessage(e.target.value);
+            setMessageBlur(false);
             setContactInputError("");
         }
     };
@@ -176,7 +184,6 @@ const Email = () => {
                 sendRef.current.focus();
             } else if (sendYN === "n") {
                 setNotSentMessage("Message not sent!");
-
                 // Resetting everything
                 setContactInputError("");
                 setEmail("");
@@ -186,6 +193,8 @@ const Email = () => {
                 setSendMessage(false);
                 setShowMessage(false);
                 setShowEmail(false);
+                setYNBlur(false);
+
                 setInput("");
                 setCommand("");
                 goBackToInput();
@@ -203,6 +212,7 @@ const Email = () => {
                 setSendMessage(false);
                 setShowMessage(false);
                 setShowEmail(false);
+                setYNBlur(false);
 
                 setInput("");
                 setCommand("");
@@ -239,6 +249,18 @@ const Email = () => {
         }
     };
 
+    const handleContactBlur = (currentBlur) => {
+        if (currentBlur === "name") {
+            nameRef.current.focus();
+        } else if (currentBlur === "email") {
+            emailRef.current.focus();
+        } else if (currentBlur === "message") {
+            messageRef.current.focus();
+        } else if (currentBlur === "yn") {
+            sendRef.current.focus();
+        }
+    };
+
     return (
         <div>
             {showName && (
@@ -252,6 +274,9 @@ const Email = () => {
                         value={name}
                         onChange={handleNameChange}
                         readOnly={showEmail ? true : false}
+                        onBlur={
+                            nameBlur ? () => handleContactBlur("name") : null
+                        }
                     />
                 </div>
             )}
@@ -267,6 +292,9 @@ const Email = () => {
                         value={email}
                         onChange={handleEmailChange}
                         readOnly={showMessage ? true : false}
+                        onBlur={
+                            emailBlur ? () => handleContactBlur("email") : null
+                        }
                     />
                 </div>
             )}
@@ -284,6 +312,11 @@ const Email = () => {
                         value={message}
                         onChange={handleMessageChange}
                         readOnly={sendMessage ? true : false}
+                        onBlur={
+                            messageBlur
+                                ? () => handleContactBlur("message")
+                                : null
+                        }
                     />
                 </div>
             )}
@@ -298,6 +331,7 @@ const Email = () => {
                         onKeyDown={handleSendKeyDown}
                         value={sendYN}
                         onChange={handleSendChange}
+                        onBlur={ynBlur ? () => handleContactBlur("yn") : null}
                     />
                 </div>
             )}

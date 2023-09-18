@@ -9,6 +9,7 @@ const CircleButton = ({ color, imgURL, altText, actionURL, iconType }) => {
         setNotSentMessage,
         setInputError,
         setContactInputError,
+        setCommandBlur,
     } = useContext(InputContext);
 
     const handleClear = () => {
@@ -27,6 +28,7 @@ const CircleButton = ({ color, imgURL, altText, actionURL, iconType }) => {
         setSentMessage("");
         setInputError("");
         setContactInputError("");
+        setCommandBlur(false);
     };
 
     return (
