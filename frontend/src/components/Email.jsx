@@ -4,6 +4,7 @@ import CodeLine from "./CodeLine";
 import { InputContext } from "../contexts/InputContext";
 
 const Email = () => {
+    const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$/i;
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -14,8 +15,9 @@ const Email = () => {
         setInput,
         setSentMessage,
         setNotSentMessage,
+        contactInputError,
+        setContactInputError,
     } = useContext(InputContext);
-    const [inputError, setInputError] = useState("");
     const [showName, setShowName] = useState(true);
     const [showEmail, setShowEmail] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
@@ -28,7 +30,7 @@ const Email = () => {
     const messageRef = useRef(null);
     const sendRef = useRef(null);
 
-    //! TODO: Add emailjs to send email
+    // Sending email
     function sendEmail(name, email, message) {
         const params = {
             user_name: name,
@@ -51,7 +53,7 @@ const Email = () => {
                 (error) => {
                     console.log("Error sending the message!");
                     console.log(error.text);
-                    setInputError(
+                    setContactInputError(
                         "Error sending the message! Please try again or send directly to ashghcode@gmail.com.",
                     );
                 },
@@ -82,7 +84,7 @@ const Email = () => {
         if (e.key === "Enter") {
             e.preventDefault(); // Prevents a new line from being added
             if (name === "") {
-                setInputError("Please enter your name!");
+                setContactInputError("Please enter your name!");
                 nameRef.current.focus();
             } else {
                 setShowEmail(true);
@@ -96,12 +98,12 @@ const Email = () => {
 
         if (currentLength > maxLen) {
             e.target.value = e.target.value.substring(0, maxLen);
-            setInputError(
+            setContactInputError(
                 "Maximum length of the name is 15 characters. Please Try Again!",
             );
         } else {
             setName(e.target.value);
-            setInputError("");
+            setContactInputError("");
         }
     };
 
@@ -109,9 +111,12 @@ const Email = () => {
         if (e.key === "Enter") {
             e.preventDefault(); // Prevents a new line from being added
             if (email === "") {
-                setInputError("Please enter your email!");
+                setContactInputError("Please enter your email!");
                 emailRef.current.focus();
+            } else if (!EMAIL_REGEX.test(email)) {
+                setContactInputError("Please enter a valid email address!");
             } else {
+                setContactInputError("");
                 setShowMessage(true);
             }
         }
@@ -123,12 +128,12 @@ const Email = () => {
 
         if (currentLength > maxLen) {
             e.target.value = e.target.value.substring(0, maxLen);
-            setInputError(
+            setContactInputError(
                 "Maximum length of the email is 30 characters. Please Try Again!",
             );
         } else {
             setEmail(e.target.value);
-            setInputError("");
+            setContactInputError("");
         }
     };
 
@@ -136,7 +141,7 @@ const Email = () => {
         if (e.key === "Enter") {
             e.preventDefault(); // Prevents a new line from being added
             if (message === "") {
-                setInputError("Please enter your message!");
+                setContactInputError("Please enter your message!");
                 messageRef.current.focus();
             } else {
                 setSendMessage(true);
@@ -145,17 +150,17 @@ const Email = () => {
     };
 
     const handleMessageChange = (e) => {
-        const maxLen = 30;
+        const maxLen = 120;
         const currentLength = e.target.value.length;
 
         if (currentLength > maxLen) {
             e.target.value = e.target.value.substring(0, maxLen);
-            setInputError(
-                "Maximum length of the message is 30 characters. Please Try Again!",
+            setContactInputError(
+                "Maximum length of the message is 120 characters. Please Try Again!",
             );
         } else {
             setMessage(e.target.value);
-            setInputError("");
+            setContactInputError("");
         }
     };
 
@@ -163,7 +168,7 @@ const Email = () => {
         if (e.key === "Enter") {
             e.preventDefault(); // Prevents a new line from being added
             if (sendYN === "") {
-                setInputError(
+                setContactInputError(
                     "Field cannot be empty! Please enter 'y' or 'n'!",
                 );
                 sendRef.current.focus();
@@ -171,7 +176,7 @@ const Email = () => {
                 setNotSentMessage("Message not sent!");
 
                 // Resetting everything
-                setInputError("");
+                setContactInputError("");
                 setEmail("");
                 setMessage("");
                 setName("");
@@ -184,7 +189,7 @@ const Email = () => {
                 goBackToInput();
             } else if (sendYN === "y") {
                 // Sending the email
-                setInputError("");
+                setContactInputError("");
                 sendEmail(name, email, message);
 
                 // Resetting everything
@@ -200,7 +205,9 @@ const Email = () => {
                 setCommand("");
                 goBackToInput();
             } else {
-                setInputError("Please enter 'y' or 'n' to send the message!");
+                setContactInputError(
+                    "Please enter 'y' or 'n' to send the message!",
+                );
             }
         }
     };
@@ -211,7 +218,7 @@ const Email = () => {
 
         if (currentLength > maxLen) {
             e.target.value = e.target.value.substring(0, maxLen);
-            setInputError(
+            setContactInputError(
                 "Please enter 'y' or 'n' to send the message. Please Try Again!",
             );
         } else if (
@@ -219,12 +226,12 @@ const Email = () => {
             e.target.value != "n" &&
             e.target.value != ""
         ) {
-            setInputError(
+            setContactInputError(
                 "Please enter 'y' or 'n' to send the message. Please Try Again!",
             );
         } else {
             setSendYN(e.target.value);
-            setInputError("");
+            setContactInputError("");
         }
     };
 
@@ -291,8 +298,11 @@ const Email = () => {
                 </div>
             )}
 
-            {inputError && (
-                <CodeLine text={inputError} extraStyles={"text-red-500"} />
+            {contactInputError && (
+                <CodeLine
+                    text={contactInputError}
+                    extraStyles={"text-red-500"}
+                />
             )}
         </div>
     );

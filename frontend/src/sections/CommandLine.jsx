@@ -23,8 +23,9 @@ const CommandLine = () => {
         notSentMessage,
         setSentMessage,
         setNotSentMessage,
+        inputError,
+        setInputError,
     } = useContext(InputContext);
-    const [inputError, setInputError] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 
     useEffect(() => {
