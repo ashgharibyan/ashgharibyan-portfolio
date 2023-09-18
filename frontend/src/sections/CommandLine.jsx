@@ -18,7 +18,6 @@ const CommandLine = () => {
         setInput,
         command,
         setCommand,
-        nameRef,
         inputRef,
         sentMessage,
         notSentMessage,
@@ -28,6 +27,7 @@ const CommandLine = () => {
         setInputError,
         commandBlur,
         setCommandBlur,
+        sendBlur,
     } = useContext(InputContext);
     const [successMessage, setSuccessMessage] = useState("");
 
@@ -36,14 +36,17 @@ const CommandLine = () => {
         inputRef.current.focus();
     }, []);
 
+    // setting the cursor and blur back to the inputRef
+    useEffect(() => {
+        if (sendBlur === false) {
+            inputRef.current.focus();
+            setCommandBlur(true);
+        }
+    }, [sendBlur]);
+
     // sets the cursor to the input when clicked somewhere else
     const handleBlur = () => {
         inputRef.current.focus();
-        // if (currentBlur === "") {
-        //     inputRef.current.focus();
-        // } else if (currentBlur === "contact") {
-        //     nameRef.current.focus();
-        // }
     };
 
     // handles the downloading of the resume when command : resume is entered
@@ -98,8 +101,6 @@ const CommandLine = () => {
                 );
             } else if (e.target.value === "contact") {
                 // ----------------- Contact -----------------
-                // nameRef.current.focus();  - error
-                // inputRef.current.read;
                 setCommandBlur(false);
                 setInput(e.target.value);
             }

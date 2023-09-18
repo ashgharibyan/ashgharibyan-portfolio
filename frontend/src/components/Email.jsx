@@ -18,6 +18,8 @@ const Email = () => {
         contactInputError,
         setContactInputError,
         setCommandBlur,
+        sendBlur,
+        setSendBlur,
     } = useContext(InputContext);
     const [showName, setShowName] = useState(true);
     const [showEmail, setShowEmail] = useState(false);
@@ -25,11 +27,13 @@ const Email = () => {
     const [sendMessage, setSendMessage] = useState(false);
     const [sendYN, setSendYN] = useState("");
 
-    const [goBack, setGoBack] = useState(false);
-    // const nameRef = useRef(null);
     const emailRef = useRef(null);
     const messageRef = useRef(null);
     const sendRef = useRef(null);
+
+    const [nameBlur, setNameBlur] = useState(true);
+    const [emailBlur, setEmailBlur] = useState(false);
+    const [messageBlur, setMessageBlur] = useState(false);
 
     // Sending email
     function sendEmail(name, email, message) {
@@ -77,11 +81,6 @@ const Email = () => {
         }
     }, [showEmail, showMessage, sendMessage]);
 
-    const goBackToInput = () => {
-        inputRef.current.focus();
-        setCommandBlur(true);
-    };
-
     const handleNameKeyDown = (e) => {
         if (e.key === "Enter") {
             e.preventDefault(); // Prevents a new line from being added
@@ -91,6 +90,8 @@ const Email = () => {
             } else {
                 setShowEmail(true);
                 setContactInputError("");
+                setNameBlur(false);
+                setEmailBlur(true);
             }
         }
     };
@@ -121,6 +122,8 @@ const Email = () => {
             } else {
                 setContactInputError("");
                 setShowMessage(true);
+                setEmailBlur(false);
+                setMessageBlur(true);
             }
         }
     };
@@ -149,6 +152,8 @@ const Email = () => {
             } else {
                 setSendMessage(true);
                 setContactInputError("");
+                setMessageBlur(false);
+                setSendBlur(true);
             }
         }
     };
@@ -190,7 +195,8 @@ const Email = () => {
                 setShowEmail(false);
                 setInput("");
                 setCommand("");
-                goBackToInput();
+
+                setSendBlur(false);
                 setContactInputError("");
             } else if (sendYN === "y") {
                 // Sending the email
@@ -205,11 +211,11 @@ const Email = () => {
                 setSendMessage(false);
                 setShowMessage(false);
                 setShowEmail(false);
+                setSendBlur(false);
 
                 setInput("");
                 setCommand("");
                 setContactInputError("");
-                goBackToInput();
             } else {
                 setContactInputError(
                     "Please enter 'y' or 'n' to send the message!",
@@ -241,6 +247,18 @@ const Email = () => {
         }
     };
 
+    const handleContactBlur = (currentBlur) => {
+        if (currentBlur === "name") {
+            nameRef.current.focus();
+        } else if (currentBlur === "email") {
+            emailRef.current.focus();
+        } else if (currentBlur === "message") {
+            messageRef.current.focus();
+        } else if (currentBlur === "send") {
+            sendRef.current.focus();
+        }
+    };
+
     return (
         <div>
             {showName && (
@@ -254,6 +272,9 @@ const Email = () => {
                         value={name}
                         onChange={handleNameChange}
                         readOnly={showEmail ? true : false}
+                        onBlur={
+                            nameBlur ? () => handleContactBlur("name") : null
+                        }
                     />
                 </div>
             )}
@@ -269,6 +290,9 @@ const Email = () => {
                         value={email}
                         onChange={handleEmailChange}
                         readOnly={showMessage ? true : false}
+                        onBlur={
+                            emailBlur ? () => handleContactBlur("email") : null
+                        }
                     />
                 </div>
             )}
@@ -286,6 +310,11 @@ const Email = () => {
                         value={message}
                         onChange={handleMessageChange}
                         readOnly={sendMessage ? true : false}
+                        onBlur={
+                            messageBlur
+                                ? () => handleContactBlur("message")
+                                : null
+                        }
                     />
                 </div>
             )}
@@ -300,6 +329,9 @@ const Email = () => {
                         onKeyDown={handleSendKeyDown}
                         value={sendYN}
                         onChange={handleSendChange}
+                        onBlur={
+                            sendBlur ? () => handleContactBlur("send") : null
+                        }
                     />
                 </div>
             )}
