@@ -27,6 +27,8 @@ const Email = () => {
     const emailRef = useRef(null);
     const messageRef = useRef(null);
     const sendRef = useRef(null);
+
+    //! TODO: Add emailjs to send email
     function sendEmail(e) {}
 
     useEffect(() => {
