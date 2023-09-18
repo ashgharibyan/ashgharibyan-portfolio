@@ -10,6 +10,7 @@ import {
     Projects,
     Stacks,
 } from "../results/index";
+import Email from "../components/Email";
 
 const CommandLine = () => {
     const {
@@ -147,6 +148,8 @@ const CommandLine = () => {
                 ) : command.toLowerCase() === "about" ? (
                     <About />
                 ) : command.toLowerCase() === "contact" ? (
+                    <Email />
+                ) : command.toLowerCase() === "contact info" ? (
                     <Contact />
                 ) : command.toLowerCase() === "education" ? (
                     <Education />

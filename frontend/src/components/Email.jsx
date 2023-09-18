@@ -4,7 +4,7 @@ import CodeLine from "./CodeLine";
 import { InputContext } from "../contexts/InputContext";
 
 const Email = () => {
-    const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$/i;
+    const EMAIL_REGEX = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -88,6 +88,7 @@ const Email = () => {
                 nameRef.current.focus();
             } else {
                 setShowEmail(true);
+                setContactInputError("");
             }
         }
     };
@@ -145,6 +146,7 @@ const Email = () => {
                 messageRef.current.focus();
             } else {
                 setSendMessage(true);
+                setContactInputError("");
             }
         }
     };
@@ -187,6 +189,7 @@ const Email = () => {
                 setInput("");
                 setCommand("");
                 goBackToInput();
+                setContactInputError("");
             } else if (sendYN === "y") {
                 // Sending the email
                 setContactInputError("");
@@ -203,6 +206,7 @@ const Email = () => {
 
                 setInput("");
                 setCommand("");
+                setContactInputError("");
                 goBackToInput();
             } else {
                 setContactInputError(
