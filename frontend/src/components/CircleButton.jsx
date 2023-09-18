@@ -2,11 +2,14 @@ import React, { useContext } from "react";
 import { InputContext } from "../contexts/InputContext";
 
 const CircleButton = ({ color, imgURL, altText, actionURL, iconType }) => {
-    const { setInput, setCommand } = useContext(InputContext);
+    const { setInput, setCommand, setSentMessage, setNotSentMessage } =
+        useContext(InputContext);
 
     const handleClear = () => {
         setInput("");
         setCommand("");
+        setNotSentMessage("");
+        setSentMessage("");
     };
 
     const handleContact = () => {
