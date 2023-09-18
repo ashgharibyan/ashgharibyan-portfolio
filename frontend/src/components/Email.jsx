@@ -17,6 +17,7 @@ const Email = () => {
         setNotSentMessage,
         contactInputError,
         setContactInputError,
+        setCommandBlur,
     } = useContext(InputContext);
     const [showName, setShowName] = useState(true);
     const [showEmail, setShowEmail] = useState(false);
@@ -78,6 +79,7 @@ const Email = () => {
 
     const goBackToInput = () => {
         inputRef.current.focus();
+        setCommandBlur(true);
     };
 
     const handleNameKeyDown = (e) => {

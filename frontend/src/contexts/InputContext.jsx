@@ -15,7 +15,7 @@ export const InputProvider = ({ children }) => {
     const [notSentMessage, setNotSentMessage] = useState("");
     const [inputError, setInputError] = useState("");
     const [contactInputError, setContactInputError] = useState("");
-
+    const [commandBlur, setCommandBlur] = useState(true);
     return (
         <InputContext.Provider
             value={{
@@ -38,6 +38,8 @@ export const InputProvider = ({ children }) => {
                 setInputError,
                 contactInputError,
                 setContactInputError,
+                commandBlur,
+                setCommandBlur,
             }}
         >
             {children}
