@@ -10,7 +10,7 @@ const Demo = () => {
                 extraStyles="text-[#F4BD4F] px-6"
             ></CodeLine>
             <CodeLine
-                text="about, contact, contact info resume, experience, projects, education, linked-in, github, tools, technologies, clear"
+                text="about, contact, contact info, resume, experience, projects, education, linked-in, github, tools, technologies, clear"
                 extraStyles="text-[#61C454] px-12"
             ></CodeLine>
         </div>
