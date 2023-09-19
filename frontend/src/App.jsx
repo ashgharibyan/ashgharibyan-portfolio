@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { InputProvider } from "./contexts/InputContext.jsx";
 import {
     Header,
@@ -8,6 +9,16 @@ import {
 } from "./sections/sections.js";
 
 const App = () => {
+    const [showCommandLine, setShowCommandLine] = useState(false);
+
+    //delay Command Line
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowCommandLine(true);
+        }, 4500);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <InputProvider>
             <div className="bg-[#1e1e1e]">
@@ -19,9 +30,11 @@ const App = () => {
                         <section className="">
                             <Demo />
                         </section>
-                        <section className="">
-                            <CommandLine />
-                        </section>
+                        {showCommandLine && (
+                            <section className="">
+                                <CommandLine />
+                            </section>
+                        )}
                     </section>
                 </main>
 
