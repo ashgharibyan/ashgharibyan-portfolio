@@ -42,7 +42,7 @@ const Email = () => {
             user_email: email,
             user_message: message,
         };
-        3;
+
         emailjs
             .send(
                 "service_cm5zdpj",

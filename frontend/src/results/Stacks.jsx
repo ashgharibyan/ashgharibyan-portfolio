@@ -7,9 +7,7 @@ const Stacks = () => {
             <CodeLine text={".."} extraStyles={"text-[#F4BD4F]"} />
             <CodeLine text={"..."} extraStyles={"text-[#F4BD4F]"} />
             <CodeLine
-                text={
-                    "--------------------TOOLS & TECHNOLOGIES---------------------"
-                }
+                text={"---------------TOOLS & TECHNOLOGIES---------------"}
                 extraStyles={"text-[#F4BD4F]"}
             />
             <CodeLine text={""} />
@@ -32,6 +30,14 @@ const Stacks = () => {
                     "Tools: AJAX, JSON, JSP, JPA Hibernate, Socket.io, AWS(EC2), MySQL Workbench, Git, Github, Thymeleaf, Tomcat, JVM"
                 }
             />
+            <CodeLine
+                text={"--------------------------------------------------"}
+                extraStyles={"text-[#F4BD4F]"}
+            />
+            <CodeLine text={"..."} extraStyles={"text-[#F4BD4F]"} />
+            <CodeLine text={".."} extraStyles={"text-[#F4BD4F]"} />
+            <CodeLine text={"."} extraStyles={"text-[#F4BD4F]"} />
+
             <CodeLine text={""} />
 
             <CodeLine text={""} />
