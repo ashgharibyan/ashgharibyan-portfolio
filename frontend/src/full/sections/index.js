@@ -5,7 +5,7 @@ import FullFooter from "./FullFooter";
 import FullProjects from "./FullProjects";
 import FullIntro from "./FullIntro";
 import FullNavBar from "./FullNavBar";
-
+import FullLinks from "./FullLinks";
 export {
     FullContact,
     FullEducation,
@@ -14,4 +14,5 @@ export {
     FullProjects,
     FullIntro,
     FullNavBar,
+    FullLinks,
 };

@@ -19,4 +19,8 @@
     .textQuery {
         @apply lg:text-xl md:text-base sm:text-xs;
     }
+
+    .textFull {
+        @apply text-xl lg:text-lg md:text-base sm:text-xs;
+    }
 }
