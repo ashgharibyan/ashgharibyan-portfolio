@@ -81,30 +81,30 @@ const CommandLine = () => {
             setSentMessage("");
             setNotSentMessage("");
             // ----------------- CLEAR -----------------
-            if (e.target.value === "clear") {
+            if (e.target.value.toLowerCase() === "clear") {
                 setInput("");
                 setCommand("");
-            } else if (e.target.value === "resume") {
+            } else if (e.target.value.toLowerCase() === "resume") {
                 // ----------------- RESUME -----------------
                 setSuccessMessage(
                     "Thank you for downloading my resume! 🎉🎉🎉",
                 );
                 downloadFile();
-            } else if (e.target.value === "github") {
+            } else if (e.target.value.toLowerCase() === "github") {
                 // ----------------- Github -----------------
                 window.open(
                     "https://github.com/ashgharibyan",
                     "_blank",
                     "noreferrer",
                 );
-            } else if (e.target.value === "linked-in") {
+            } else if (e.target.value.toLowerCase() === "linked-in") {
                 // ----------------- Linked-in -----------------
                 window.open(
                     "https://www.linkedin.com/in/ashgharibyan/",
                     "_blank",
                     "noreferrer",
                 );
-            } else if (e.target.value === "contact") {
+            } else if (e.target.value.toLowerCase() === "contact") {
                 // ----------------- Contact -----------------
                 setCommandBlur(false);
                 setInput(e.target.value);
