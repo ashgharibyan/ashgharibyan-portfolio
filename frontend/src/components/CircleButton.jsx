@@ -19,6 +19,7 @@ const CircleButton = ({ color, imgURL, altText, actionURL, iconType }) => {
         setSentMessage("");
         setInputError("");
         setContactInputError("");
+        setCommandBlur(true);
     };
 
     const handleContact = () => {

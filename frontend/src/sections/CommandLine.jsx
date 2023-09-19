@@ -44,6 +44,11 @@ const CommandLine = () => {
         }
     }, [sendBlur]);
 
+    useEffect(() => {
+        if (commandBlur === true) {
+            inputRef.current.focus();
+        }
+    }, [commandBlur]);
     // sets the cursor to the input when clicked somewhere else
     const handleBlur = () => {
         inputRef.current.focus();
