@@ -8,10 +8,9 @@ import {
     FullNavBar,
     FullLinks,
 } from "./sections/index";
-
 const Full = () => {
     return (
-        <main className="textFull bg-[#000000] px-6 py-6 text-white">
+        <main className="textFull bg-[#0b0b0b] px-6 py-6 text-white">
             <section className="border-2 border-solid border-red-600 px-2 py-6">
                 <FullNavBar />
             </section>

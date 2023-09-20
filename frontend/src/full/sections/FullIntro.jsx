@@ -1,7 +1,5 @@
-import React from "react";
-
 const FullIntro = () => {
-    return <div>FullIntro</div>;
+    return <div>Intro</div>;
 };
 
 export default FullIntro;

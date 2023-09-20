@@ -1,4 +1,13 @@
-import { home_folder_icon, clear, contact, resume } from "../assets/icons";
+import {
+    home_folder_icon,
+    clear,
+    contact,
+    resume,
+    full_terminal,
+    full_cv,
+    full_linkedin,
+    full_github,
+} from "../assets/icons";
 import AshotGharibyanResume from "../assets/documents/AshotGharibyanResume.pdf";
 
 export const headerMaterials = [
@@ -29,5 +38,32 @@ export const headerCircleIcons = [
         image: contact,
         actionURL: "/#",
         iconType: "contact",
+    },
+];
+
+export const fullLinksMaterials = [
+    {
+        name: "Terminal icon",
+        image: full_terminal,
+        actionURL: "/",
+        type: "terminal",
+    },
+    {
+        name: "CV icon",
+        image: full_cv,
+        actionURL: AshotGharibyanResume,
+        type: "resume",
+    },
+    {
+        name: "LinkedIn icon",
+        image: full_linkedin,
+        actionURL: "https://www.linkedin.com/in/ashgharibyan/",
+        type: "link",
+    },
+    {
+        name: "Github icon",
+        image: full_github,
+        actionURL: "https://github.com/ashgharibyan",
+        type: "link",
     },
 ];

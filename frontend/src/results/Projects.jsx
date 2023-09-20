@@ -24,7 +24,9 @@ const Projects = () => {
                         href="https://github.com/ashgharibyan/theapiofapis"
                         target="_blank"
                     >
-                        Github: github.com/ashgharibyan/theapiofapis
+                        <div id="api-git">
+                            Github: github.com/ashgharibyan/theapiofapis
+                        </div>
                     </a>
                 }
                 extraStyles={"text-[#61C454]"}
@@ -82,7 +84,9 @@ const Projects = () => {
                         href="https://github.com/ashgharibyan/news-savant"
                         target="_blank"
                     >
-                        Github: github.com/ashgharibyan/news-savant
+                        <div id="news-git">
+                            Github: github.com/ashgharibyan/news-savant
+                        </div>
                     </a>
                 }
                 extraStyles={"text-[#61C454]"}
@@ -143,7 +147,9 @@ const Projects = () => {
                         href="https://github.com/ashgharibyan/rps"
                         target="_blank"
                     >
-                        Github: github.com/ashgharibyan/rps
+                        <div id="rps-git">
+                            Github: github.com/ashgharibyan/rps
+                        </div>
                     </a>
                 }
                 extraStyles={"text-[#61C454]"}
@@ -151,7 +157,7 @@ const Projects = () => {
             <CodeLine
                 text={
                     <a href="http://54.202.75.153/" target="_blank">
-                        Live Demo
+                        <div id="rps-demo">Live Demo</div>
                     </a>
                 }
                 extraStyles={"text-[#61C454]"}
@@ -212,7 +218,9 @@ const Projects = () => {
                         href="https://github.com/ashgharibyan/tapCounts"
                         target="_blank"
                     >
-                        Github: github.com/ashgharibyan/tapCounts
+                        <div id="tap-git">
+                            Github: github.com/ashgharibyan/tapCounts
+                        </div>
                     </a>
                 }
                 extraStyles={"text-[#61C454]"}

@@ -50,7 +50,17 @@ const CommandLine = () => {
         }
     }, [commandBlur]);
     // sets the cursor to the input when clicked somewhere else
-    const handleBlur = () => {
+    const handleBlur = (e) => {
+        const exemptDivs = [
+            "api-git",
+            "news-git",
+            "rps-git",
+            "rps-demo",
+            "tap-git",
+        ];
+        if (e.relatedTarget && exemptDivs.includes(e.relatedTarget.id)) {
+            return; // Do nothing, let the focus move to the div
+        }
         inputRef.current.focus();
     };
 
