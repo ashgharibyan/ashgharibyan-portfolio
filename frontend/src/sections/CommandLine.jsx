@@ -10,6 +10,7 @@ import {
     Projects,
     Stacks,
 } from "../results/index";
+
 import Email from "../components/Email";
 
 const CommandLine = () => {
@@ -29,6 +30,7 @@ const CommandLine = () => {
         setCommandBlur,
         sendBlur,
     } = useContext(InputContext);
+
     const [successMessage, setSuccessMessage] = useState("");
 
     useEffect(() => {

@@ -1,0 +1,16 @@
+#aboutChangingText > span::before {
+    content: "";
+    color: #0004ff;
+    animation: profile 4s infinite;
+}
+@keyframes profile {
+    0% {
+        content: "ASHOT";
+    }
+    50% {
+        content: "ԱՇՈՏ";
+    }
+    100% {
+        content: "АШОТ";
+    }
+}

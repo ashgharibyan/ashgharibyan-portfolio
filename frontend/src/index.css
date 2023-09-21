@@ -23,4 +23,8 @@
     .textFull {
         @apply text-xl lg:text-lg md:text-base sm:text-xs;
     }
+
+    .textFullIntroTypewriter {
+        @apply text-6xl lg:text-3xl md:text-2xl sm:text-lg;
+    }
 }

@@ -5,7 +5,6 @@ const FullLinks = () => {
     return (
         <div className="flex h-full flex-col items-center justify-center gap-6">
             {fullLinksMaterials.map((icon) => {
-                console.log(icon);
                 return (
                     <a
                         key={icon.name}
