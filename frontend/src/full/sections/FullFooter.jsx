@@ -37,8 +37,16 @@ const FullFooter = () => {
                 </div>
                 <div className="text-center">
                     <p>Los Angeles, CA</p>
-                    <p>+1 (818) 849-1298</p>
-                    <p>ashghcode@gmail.com</p>
+                    <div>
+                        <a href="mailto:ashghcode@gmail.com">
+                            ashghcode@gmail.com
+                        </a>
+                    </div>
+                    <div>
+                        <a href="mailto:ashghcode@gmail.com">
+                            ashghcode@gmail.com
+                        </a>
+                    </div>
                 </div>
             </div>
             <div className="mt-8 flex flex-wrap justify-center pt-8">
