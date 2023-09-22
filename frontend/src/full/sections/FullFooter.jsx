@@ -38,9 +38,7 @@ const FullFooter = () => {
                 <div className="text-center">
                     <p>Los Angeles, CA</p>
                     <div>
-                        <a href="mailto:ashghcode@gmail.com">
-                            ashghcode@gmail.com
-                        </a>
+                        <a href="tel:+18188491298">+1 (818) 849-1298</a>
                     </div>
                     <div>
                         <a href="mailto:ashghcode@gmail.com">
