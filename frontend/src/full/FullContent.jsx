@@ -32,9 +32,10 @@ const FullContent = () => {
                 <FullAbout />
             </section>
 
-            <section ref={projectsRef} className="h-screen w-screen">
+            <section ref={projectsRef} className="">
                 <FullProjects />
             </section>
+
             <div
                 ref={expAndEdRef}
                 className="flex h-screen justify-between border-2 border-solid border-blue-600 px-2 py-6"
