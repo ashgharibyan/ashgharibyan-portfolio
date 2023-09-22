@@ -17,7 +17,7 @@ const FullContent = () => {
         useContext(FullContext);
 
     return (
-        <main className="textFull bg-[#ffffff] px-6 py-6 text-black">
+        <main className="textFull bg-[#ffffff] text-black">
             {/* <section className="border-2 border-solid border-red-600 px-2 py-6">
                 <FullNavBar />
                 </section> */}
@@ -31,10 +31,8 @@ const FullContent = () => {
             >
                 <FullAbout />
             </section>
-            <section
-                ref={projectsRef}
-                className="h-screen border-2 border-solid border-red-600 px-2 py-6"
-            >
+
+            <section ref={projectsRef} className="h-screen w-screen">
                 <FullProjects />
             </section>
             <div
