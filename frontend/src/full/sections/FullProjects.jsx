@@ -16,10 +16,26 @@ const FullProjects = () => {
                     <div className="absolute inset-0 flex items-center justify-center bg-black p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <div className="text-center text-white">
                             <h3 className="mb-2 font-bold">TheAPIofAPIsI</h3>
+                            &nbsp;
                             <p>
                                 API hub and creator with Java, Spring Boot, JSP,
                                 and more.
                             </p>
+                            &nbsp;
+                            <div className="flex justify-around">
+                                <a
+                                    className="rounded-md bg-white p-1 text-black"
+                                    href="https://github.com/ashgharibyan/theapiofapis"
+                                >
+                                    Github
+                                </a>
+                                <a
+                                    className="rounded-md bg-white p-1 text-black"
+                                    href="https://youtu.be/MFgXnbdvR-E?si=J2tKgL7HwyuAkjdb"
+                                >
+                                    Demo
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -31,11 +47,21 @@ const FullProjects = () => {
                     />
                     <div className="absolute inset-0 flex items-center justify-center bg-black  p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <div className="text-center text-white">
-                            <h3 className="mb-2 font-bold">NewsSavant AI</h3>
+                            <h3 className="mb-2 font-bold">NewsSavant AI</h3>{" "}
+                            &nbsp;
                             <p>
                                 News search by voice using AI bot, React, and
                                 Alan AI.
-                            </p>
+                            </p>{" "}
+                            &nbsp;
+                            <div className="flex justify-around">
+                                <a
+                                    className="rounded-md bg-white p-1 text-black"
+                                    href="https://github.com/ashgharibyan/news-savant"
+                                >
+                                    Github
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -44,10 +70,26 @@ const FullProjects = () => {
                     <div className="absolute inset-0 flex items-center justify-center bg-black  p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <div className="text-center text-white">
                             <h3 className="mb-2 font-bold">RPS</h3>
+                            &nbsp;
                             <p>
                                 Multiplayer Rock, Paper, Scissors game with
                                 Flask and socket.io.
                             </p>
+                            &nbsp;
+                            <div className="flex justify-around">
+                                <a
+                                    className="rounded-md bg-white p-1 text-black"
+                                    href="https://github.com/ashgharibyan/rps"
+                                >
+                                    Github
+                                </a>
+                                <a
+                                    className="rounded-md bg-white p-1 text-black"
+                                    href="http://54.202.75.153/"
+                                >
+                                    Live
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,6 +106,15 @@ const FullProjects = () => {
                                 iOS game to improve concentration, built with
                                 Swift.
                             </p>
+                            &nbsp;
+                            <div className="flex justify-around">
+                                <a
+                                    className="rounded-md bg-white p-1 text-black"
+                                    href="https://github.com/ashgharibyan/tapCounts"
+                                >
+                                    Github
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

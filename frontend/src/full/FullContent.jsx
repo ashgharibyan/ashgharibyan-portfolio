@@ -22,12 +22,12 @@ const FullContent = () => {
                 <FullNavBar />
                 </section> */}
 
-            <section className="flex h-screen items-center justify-center border-2 border-solid border-red-600 px-2 py-6">
+            <section className="flex h-screen items-center justify-center px-2 py-6">
                 <FullIntro />
             </section>
             <section
                 ref={aboutRef}
-                className="flex h-screen items-center justify-center border-2 border-solid border-red-600 px-2 py-6"
+                className="flex h-screen items-center justify-center px-2 py-6"
             >
                 <FullAbout />
             </section>
@@ -38,15 +38,16 @@ const FullContent = () => {
 
             <div
                 ref={expAndEdRef}
-                className="flex h-screen justify-between border-2 border-solid border-blue-600 px-2 py-6"
+                className="flex h-screen items-center justify-between border-2 border-solid border-blue-600 sm:h-fit sm:flex-col"
             >
-                <section className="w-[50%] border-2 border-solid border-red-600 ">
+                <section className="flex h-full  w-[50%] items-center justify-center  sm:w-[100%]">
                     <FullExperience />
                 </section>
-                <section className="w-[50%] border-2 border-solid border-red-600">
+                <section className="flex h-full w-[50%] items-center justify-center bg-black text-white  sm:w-[100%]">
                     <FullEducation />
                 </section>
             </div>
+
             <section
                 ref={contactRef}
                 className="h-screen border-2 border-solid border-red-600 px-2 py-6"
