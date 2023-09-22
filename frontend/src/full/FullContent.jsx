@@ -50,7 +50,7 @@ const FullContent = () => {
 
             <section
                 ref={contactRef}
-                className="h-screen border-2 border-solid border-red-600 px-2 py-6"
+                className="h-screen border-2 border-solid border-red-600 "
             >
                 <FullContact />
             </section>
