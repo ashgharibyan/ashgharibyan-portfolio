@@ -27,7 +27,7 @@ const FullContent = () => {
             </section>
             <section
                 ref={aboutRef}
-                className="flex h-screen items-center justify-center px-2 py-6"
+                className="flex h-screen items-center justify-center bg-black px-2 py-6 text-white sm:h-fit"
             >
                 <FullAbout />
             </section>

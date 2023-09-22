@@ -1,6 +1,6 @@
 #aboutChangingText > span::before {
     content: "";
-    color: #0004ff;
+    color: #f4bd4f;
     animation: profile 4s infinite;
 }
 @keyframes profile {
