@@ -1,0 +1,15 @@
+/* TopRightButton.css */
+.topRightButton {
+    position: fixed; /* Keeps the button fixed on the screen */
+    bottom: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    z-index: 1000; /* Ensures the button is on top of other elements */
+    border: none; /* Removes default button border */
+    background: none; /* Removes default button background */
+    cursor: pointer; /* Changes the cursor to a hand when hovering over the button */
+}
+
+.topRightButton img {
+    width: 50px; /* Adjust based on your image size */
+    height: 50px; /* Adjust based on your image size */
+}

@@ -8,9 +8,16 @@ import {
     Demo,
     Result,
 } from "../sections/sections.js";
+import { useLocation } from "react-router-dom";
+import GoBack from "../components/GoBack";
 
 const Terminal = () => {
     const [showCommandLine, setShowCommandLine] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location.pathname]);
 
     //delay Command Line
     useEffect(() => {
@@ -22,6 +29,7 @@ const Terminal = () => {
 
     return (
         <InputProvider>
+            <GoBack />
             <div className="bg-[#1e1e1e]">
                 <main>
                     <section className="bg-[#3F3836] px-8 py-4 text-3xl text-[#BAB3B2]">

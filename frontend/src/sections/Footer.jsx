@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="flex items-center justify-center gap-2 p-2">
-            <Link to="/full">Go to Full Website</Link>
+        <footer className="gap-2 p-2 text-center text-white">
+            <Link to="/">go to the full website</Link>
         </footer>
     );
 };

@@ -1,10 +1,17 @@
 import React from "react";
 import { fullLinksMaterials } from "../../constants";
+import { Link } from "react-router-dom";
 
 const FullFooter = () => {
     return (
         <footer className="bg-black py-6 text-white">
-            <div className="flex items-center justify-between gap-2 px-10 text-lg md:flex-col md:text-base sm:text-sm">
+            <div className=" bg-green-500  py-3 text-center text-black">
+                <Link to="/terminal" className="">
+                    check out the terminal version of the portfolio
+                </Link>
+            </div>
+
+            <div className="flex items-center justify-between gap-2 px-10 py-6 text-lg md:flex-col md:text-base sm:text-sm">
                 <div className="text-center">
                     <h2 className=" font-bold">Ashot Gharibyan</h2>
                     <p className="">Full Stack Developer</p>
