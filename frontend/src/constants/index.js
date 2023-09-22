@@ -7,7 +7,7 @@ import {
     full_cv,
     full_linkedin,
     full_github,
-} from "../assets/icons";
+} from "../assets/icons/index.js";
 import AshotGharibyanResume from "../assets/documents/AshotGharibyanResume.pdf";
 
 export const headerMaterials = [
