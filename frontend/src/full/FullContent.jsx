@@ -18,7 +18,7 @@ const FullContent = () => {
 
     return (
         <main className="textFull bg-[#ffffff] text-black">
-            {/* <section className="border-2 border-solid border-red-600 px-2 py-6">
+            {/* <section className=" px-2 py-6">
                 <FullNavBar />
                 </section> */}
 
@@ -38,7 +38,7 @@ const FullContent = () => {
 
             <div
                 ref={expAndEdRef}
-                className="flex h-screen items-center justify-between border-2 border-solid border-blue-600 sm:h-fit sm:flex-col"
+                className="flex h-screen items-center justify-between sm:h-fit sm:flex-col"
             >
                 <section className="flex h-full  w-[50%] items-center justify-center  sm:w-[100%]">
                     <FullExperience />
@@ -48,13 +48,10 @@ const FullContent = () => {
                 </section>
             </div>
 
-            <section
-                ref={contactRef}
-                className="h-screen border-2 border-solid border-red-600 "
-            >
+            <section ref={contactRef} className="h-screen md:h-fit ">
                 <FullContact />
             </section>
-            <section className="border-2 border-solid border-red-600 px-2 py-6">
+            <section className="">
                 <FullFooter />
             </section>
         </main>

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "../css/aboutChangingText.css";
 import { FullContext } from "../../contexts/FullContext";
+import "../css/scrollOrange.css";
 const FullAbout = () => {
     const { projectsRef } = useContext(FullContext);
     const handleScrollDown = () => {
@@ -83,13 +84,11 @@ const FullAbout = () => {
                     </p>
                 </div>
             </section>
-            <button
-                className=" bg-black text-white"
-                type="button"
-                onClick={handleScrollDown}
-            >
-                Scroll Down
-            </button>
+            <div className="container_mouse" onClick={handleScrollDown}>
+                <span className="mouse-btn">
+                    <span className="mouse-scroll"></span>
+                </span>
+            </div>
         </div>
     );
 };

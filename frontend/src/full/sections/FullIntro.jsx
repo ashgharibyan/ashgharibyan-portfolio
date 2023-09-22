@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import TypewriterText from "../components/TypewriterText";
 import { FullContext } from "../../contexts/FullContext";
-
+import "../css/scroll.css";
 const FullIntro = () => {
     const { aboutRef } = useContext(FullContext);
     const handleScrollDown = () => {
@@ -19,13 +19,11 @@ const FullIntro = () => {
                 <h1> DEVELOPER </h1>
             </div>
 
-            <button
-                className="bg-black text-white"
-                type="button"
-                onClick={handleScrollDown}
-            >
-                Scroll Down
-            </button>
+            <div className="container_mouse" onClick={handleScrollDown}>
+                <span className="mouse-btn">
+                    <span className="mouse-scroll"></span>
+                </span>
+            </div>
         </div>
     );
 };

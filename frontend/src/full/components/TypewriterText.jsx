@@ -5,7 +5,7 @@ const TypewriterText = () => {
     const [textIndex, setTextIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
     const [currentText, setCurrentText] = useState("");
-    const dataText = ["Front-End", "Back-End", "Full-Stack"];
+    const dataText = ["FRONT-END", "BACK-END", "FULL-STACK"];
 
     useEffect(() => {
         if (charIndex < dataText[textIndex].length) {

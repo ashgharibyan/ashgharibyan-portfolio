@@ -1,14 +1,3 @@
-body {
-    height: 100%;
-    font-family: "tradegothiclt-bold", sans-serif;
-}
-
-h1 {
-    font-size: 5em;
-    color: black;
-    text-transform: uppercase;
-}
-
 #typewriter > span {
     border-right: 0.05em solid;
     animation: caret 1s steps(1) infinite;

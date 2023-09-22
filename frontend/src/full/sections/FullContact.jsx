@@ -82,7 +82,7 @@ const FullContact = () => {
     };
 
     return (
-        <div className="flex h-full flex-col items-center justify-center bg-black">
+        <div className="flex h-full flex-col items-center justify-center bg-black py-8">
             {messageSent ? (
                 <div className="text-center">
                     <h1 className="text-9xl text-[#61C454] md:text-6xl  sm:text-4xl">
