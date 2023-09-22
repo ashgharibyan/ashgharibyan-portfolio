@@ -8,7 +8,7 @@ const FullIntro = () => {
         aboutRef.current.scrollIntoView({ behavior: "smooth" });
     };
     return (
-        <div className="textFullIntroTypewriter space-y-4 text-center md:space-y-2 sm:space-y-1">
+        <div className=" textFullIntroTypewriter space-y-4 text-center md:space-y-2 sm:space-y-1">
             <h1 className="text-center ">HI,</h1>
 
             <div className="flex">
@@ -19,7 +19,11 @@ const FullIntro = () => {
                 <h1> DEVELOPER </h1>
             </div>
 
-            <div className="container_mouse" onClick={handleScrollDown}>
+            <div
+                id="scroll"
+                className="container_mouse black-red"
+                onClick={handleScrollDown}
+            >
                 <span className="mouse-btn">
                     <span className="mouse-scroll"></span>
                 </span>

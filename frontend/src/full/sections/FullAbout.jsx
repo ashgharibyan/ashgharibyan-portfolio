@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import "../css/aboutChangingText.css";
 import { FullContext } from "../../contexts/FullContext";
-import "../css/scrollOrange.css";
+import "../css/scroll.css";
 const FullAbout = () => {
     const { projectsRef } = useContext(FullContext);
     const handleScrollDown = () => {
         projectsRef.current.scrollIntoView({ behavior: "smooth" });
     };
     return (
-        <div className="text-center ">
+        <div className=" text-center ">
             <div className="textFullIntroTypewriter flex items-center justify-center ">
                 <h1 className="text-white">MY NAME IS</h1>&nbsp;
                 <h1
@@ -84,7 +84,11 @@ const FullAbout = () => {
                     </p>
                 </div>
             </section>
-            <div className="container_mouse" onClick={handleScrollDown}>
+            <div
+                id="scrollOrange"
+                className="container_mouse white-orange"
+                onClick={handleScrollDown}
+            >
                 <span className="mouse-btn">
                     <span className="mouse-scroll"></span>
                 </span>
