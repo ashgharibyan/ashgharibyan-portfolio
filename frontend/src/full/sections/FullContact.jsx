@@ -6,9 +6,9 @@ const FullContact = () => {
     const [errors, setErrors] = useState("");
     const [messageSent, setMessageSent] = useState(false);
     const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        message: "",
+        user_name: "",
+        user_email: "",
+        user_message: "",
     });
 
     const handleChange = (e) => {
@@ -34,26 +34,30 @@ const FullContact = () => {
         e.preventDefault();
 
         let newErrors = {
-            name: "",
-            email: "",
-            message: "",
+            user_name: "",
+            user_email: "",
+            user_message: "",
         };
 
-        if (!formData.name) {
-            newErrors.name = "Name is required.";
+        if (!formData.user_name) {
+            newErrors.user_name = "Name is required.";
         }
 
-        if (!formData.email || !EMAIL_REGEX.test(formData.email)) {
-            newErrors.email = "Please enter a valid email address.";
+        if (!formData.user_email || !EMAIL_REGEX.test(formData.user_email)) {
+            newErrors.user_email = "Please enter a valid email address.";
         }
 
-        if (!formData.message) {
-            newErrors.message = "Message is required.";
+        if (!formData.user_message) {
+            newErrors.user_message = "Message is required.";
         }
 
         setErrors(newErrors);
 
-        if (!newErrors.name && !newErrors.email && !newErrors.message) {
+        if (
+            !newErrors.user_name &&
+            !newErrors.user_email &&
+            !newErrors.user_message
+        ) {
             emailjs
                 .send(
                     "service_cm5zdpj",
@@ -74,9 +78,9 @@ const FullContact = () => {
                 );
 
             setFormData({
-                name: "",
-                email: "",
-                message: "",
+                user_name: "",
+                user_email: "",
+                user_message: "",
             });
         }
     };
@@ -108,15 +112,15 @@ const FullContact = () => {
                             <input
                                 type="text"
                                 placeholder="NAME"
-                                id="name"
-                                name="name"
-                                value={formData.name}
+                                id="user_name"
+                                name="user_name"
+                                value={formData.user_name}
                                 onChange={handleChange}
                                 className="w-full border-b-2 border-black p-4 focus:border-red-600 focus:outline-none"
                             />
-                            {errors.name && (
+                            {errors.user_name && (
                                 <p className="text-sm text-red-600">
-                                    {errors.name}
+                                    {errors.user_name}
                                 </p>
                             )}
                         </div>
@@ -124,31 +128,31 @@ const FullContact = () => {
                             <input
                                 type="email"
                                 placeholder="EMAIL"
-                                id="email"
-                                name="email"
-                                value={formData.email}
+                                id="user_email"
+                                name="user_email"
+                                value={formData.user_email}
                                 onChange={handleChange}
                                 className="w-full border-b-2 border-black p-4 focus:border-red-600 focus:outline-none"
                             />
-                            {errors.email && (
+                            {errors.user_email && (
                                 <p className="text-sm text-red-600">
-                                    {errors.email}
+                                    {errors.user_email}
                                 </p>
                             )}
                         </div>
                         <div>
                             <textarea
-                                id="message"
-                                name="message"
+                                id="user_message"
+                                name="user_message"
                                 placeholder="MESSAGE"
-                                value={formData.message}
+                                value={formData.user_message}
                                 onChange={handleChange}
                                 className="w-full border-b-2 border-black p-4 focus:border-red-600 focus:outline-none"
                                 rows="6"
                             ></textarea>
-                            {errors.message && (
+                            {errors.user_message && (
                                 <p className="text-sm text-red-600">
-                                    {errors.message}
+                                    {errors.user_message}
                                 </p>
                             )}
                         </div>
