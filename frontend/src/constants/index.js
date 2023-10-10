@@ -22,7 +22,7 @@ export const headerCircleIcons = [
         name: "Clear icon",
         color: "bg-[#ED695E]",
         image: clear,
-        actionURL: "/#",
+        actionURL: "/terminal/#",
         iconType: "clear",
     },
     {
@@ -36,7 +36,7 @@ export const headerCircleIcons = [
         name: "Contact icon",
         color: "bg-[#61C454]",
         image: contact,
-        actionURL: "/#",
+        actionURL: "/terminal/#",
         iconType: "contact",
     },
 ];
