@@ -1,11 +1,49 @@
 import React, { useEffect } from "react";
-import { apiofapis, newssavant, rps, tapcount } from "../../assets/images";
+import {
+    apiofapis,
+    newssavant,
+    rps,
+    tapcount,
+    chronocraft,
+} from "../../assets/images";
 const FullProjects = () => {
     return (
         <div className="text-center">
             <h1 className="textFullIntroTypewriter py-8 md:py-6 sm:py-4">
                 PROJECTS
             </h1>
+            <div className="group relative h-fit w-full">
+                <img
+                    src={chronocraft}
+                    alt="ChronoCraft"
+                    className=" object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="text-center text-white">
+                        <h3 className="mb-2 font-bold">ChronoCraft</h3>
+                        &nbsp;
+                        <p>
+                            Project Management Application using Django, React,
+                            Tailwind, JWT, Django REST Framework, Heroku
+                        </p>
+                        &nbsp;
+                        <div className="flex justify-around">
+                            <a
+                                className="rounded-md bg-white p-1 text-black"
+                                href="https://github.com/ashgharibyan/ChronoCraft"
+                            >
+                                Github
+                            </a>
+                            <a
+                                className="rounded-md bg-white p-1 text-black"
+                                href="http://www.chronocraftusa.com/"
+                            >
+                                Live: chronocraftusa.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className=" grid  grid-cols-2">
                 <div className="group relative">
                     <img

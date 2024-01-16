@@ -11,6 +11,71 @@ const Projects = () => {
                 extraStyles={"text-[#F4BD4F]"}
             />
             <CodeLine
+                text={"Project Name: ChronoCraft"}
+                extraStyles={"text-[#61C454]"}
+            />
+            <CodeLine
+                text={"Role: Full Stack Developer"}
+                extraStyles={"text-[#61C454]"}
+            />
+            <CodeLine
+                text={
+                    <a
+                        href="https://github.com/ashgharibyan/chronocraft"
+                        target="_blank"
+                    >
+                        <div id="chronocraft-git">
+                            Github: github.com/ashgharibyan/chronocraft
+                        </div>
+                    </a>
+                }
+                extraStyles={"text-[#61C454]"}
+            />
+            <CodeLine
+                text={
+                    <a href="http://chronocraftusa.com" target="_blank">
+                        <div id="chronocraft-live">
+                            Live: chronocraftusa.com
+                        </div>
+                    </a>
+                }
+                extraStyles={"text-[#61C454]"}
+            />
+            <CodeLine
+                text={
+                    "Project Management Application using Django, React, Tailwind, JWT, Django REST Framework, Heroku"
+                }
+                extraStyles={"text-[#61C454]"}
+            />
+            <CodeLine text={""} />
+            <CodeLine text={""} />
+            <CodeLine text={""} />
+            <CodeLine
+                text={
+                    "- Developed a comprehensive Project Management Application using Django, React, and Tailwind CSS to optimize user experience and interface design."
+                }
+            />
+            <CodeLine
+                text={
+                    "- Implemented JWT (JSON Web Tokens) for secure and efficient user authentication, ensuring data protection and privacy."
+                }
+            />
+            <CodeLine
+                text={
+                    "- Utilized Django REST Framework for building a powerful and flexible backend, enhancing the application's scalability and maintainability."
+                }
+            />
+            <CodeLine
+                text={
+                    "- Designed and implemented a responsive user interface with Tailwind CSS, improving accessibility and user engagement across various devices."
+                }
+            />
+            <CodeLine text={""} />
+            <CodeLine
+                text={"-------------------------------------------------"}
+                extraStyles={"text-[#F4BD4F]"}
+            />
+            <CodeLine
                 text={"Project Name: TheAPIofAPIsI"}
                 extraStyles={"text-[#61C454]"}
             />
